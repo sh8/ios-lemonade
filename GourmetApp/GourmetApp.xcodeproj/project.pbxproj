@@ -1,0 +1,424 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		24BCC0821B3978C300E9A79C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BCC0811B3978C300E9A79C /* AppDelegate.swift */; };
+		24BCC0841B3978C300E9A79C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BCC0831B3978C300E9A79C /* ViewController.swift */; };
+		24BCC0871B3978C300E9A79C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24BCC0851B3978C300E9A79C /* Main.storyboard */; };
+		24BCC0891B3978C300E9A79C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24BCC0881B3978C300E9A79C /* Images.xcassets */; };
+		24BCC08C1B3978C300E9A79C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24BCC08A1B3978C300E9A79C /* LaunchScreen.xib */; };
+		24BCC0981B3978C300E9A79C /* GourmetAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BCC0971B3978C300E9A79C /* GourmetAppTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		24BCC0921B3978C300E9A79C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 24BCC0741B3978C200E9A79C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 24BCC07B1B3978C200E9A79C;
+			remoteInfo = GourmetApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		24BCC07C1B3978C200E9A79C /* GourmetApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GourmetApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		24BCC0801B3978C200E9A79C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		24BCC0811B3978C300E9A79C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		24BCC0831B3978C300E9A79C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		24BCC0861B3978C300E9A79C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		24BCC0881B3978C300E9A79C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		24BCC08B1B3978C300E9A79C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		24BCC0911B3978C300E9A79C /* GourmetAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GourmetAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		24BCC0961B3978C300E9A79C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		24BCC0971B3978C300E9A79C /* GourmetAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GourmetAppTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		24BCC0791B3978C200E9A79C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		24BCC08E1B3978C300E9A79C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		24BCC0731B3978C200E9A79C = {
+			isa = PBXGroup;
+			children = (
+				24BCC07E1B3978C200E9A79C /* GourmetApp */,
+				24BCC0941B3978C300E9A79C /* GourmetAppTests */,
+				24BCC07D1B3978C200E9A79C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		24BCC07D1B3978C200E9A79C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				24BCC07C1B3978C200E9A79C /* GourmetApp.app */,
+				24BCC0911B3978C300E9A79C /* GourmetAppTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		24BCC07E1B3978C200E9A79C /* GourmetApp */ = {
+			isa = PBXGroup;
+			children = (
+				24BCC0811B3978C300E9A79C /* AppDelegate.swift */,
+				24BCC0831B3978C300E9A79C /* ViewController.swift */,
+				24BCC0851B3978C300E9A79C /* Main.storyboard */,
+				24BCC0881B3978C300E9A79C /* Images.xcassets */,
+				24BCC08A1B3978C300E9A79C /* LaunchScreen.xib */,
+				24BCC07F1B3978C200E9A79C /* Supporting Files */,
+			);
+			path = GourmetApp;
+			sourceTree = "<group>";
+		};
+		24BCC07F1B3978C200E9A79C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				24BCC0801B3978C200E9A79C /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		24BCC0941B3978C300E9A79C /* GourmetAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				24BCC0971B3978C300E9A79C /* GourmetAppTests.swift */,
+				24BCC0951B3978C300E9A79C /* Supporting Files */,
+			);
+			path = GourmetAppTests;
+			sourceTree = "<group>";
+		};
+		24BCC0951B3978C300E9A79C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				24BCC0961B3978C300E9A79C /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		24BCC07B1B3978C200E9A79C /* GourmetApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 24BCC09B1B3978C300E9A79C /* Build configuration list for PBXNativeTarget "GourmetApp" */;
+			buildPhases = (
+				24BCC0781B3978C200E9A79C /* Sources */,
+				24BCC0791B3978C200E9A79C /* Frameworks */,
+				24BCC07A1B3978C200E9A79C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GourmetApp;
+			productName = GourmetApp;
+			productReference = 24BCC07C1B3978C200E9A79C /* GourmetApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		24BCC0901B3978C300E9A79C /* GourmetAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 24BCC09E1B3978C300E9A79C /* Build configuration list for PBXNativeTarget "GourmetAppTests" */;
+			buildPhases = (
+				24BCC08D1B3978C300E9A79C /* Sources */,
+				24BCC08E1B3978C300E9A79C /* Frameworks */,
+				24BCC08F1B3978C300E9A79C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				24BCC0931B3978C300E9A79C /* PBXTargetDependency */,
+			);
+			name = GourmetAppTests;
+			productName = GourmetAppTests;
+			productReference = 24BCC0911B3978C300E9A79C /* GourmetAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		24BCC0741B3978C200E9A79C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = "岩瀬　駿";
+				TargetAttributes = {
+					24BCC07B1B3978C200E9A79C = {
+						CreatedOnToolsVersion = 6.3.2;
+					};
+					24BCC0901B3978C300E9A79C = {
+						CreatedOnToolsVersion = 6.3.2;
+						TestTargetID = 24BCC07B1B3978C200E9A79C;
+					};
+				};
+			};
+			buildConfigurationList = 24BCC0771B3978C200E9A79C /* Build configuration list for PBXProject "GourmetApp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 24BCC0731B3978C200E9A79C;
+			productRefGroup = 24BCC07D1B3978C200E9A79C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				24BCC07B1B3978C200E9A79C /* GourmetApp */,
+				24BCC0901B3978C300E9A79C /* GourmetAppTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		24BCC07A1B3978C200E9A79C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				24BCC0871B3978C300E9A79C /* Main.storyboard in Resources */,
+				24BCC08C1B3978C300E9A79C /* LaunchScreen.xib in Resources */,
+				24BCC0891B3978C300E9A79C /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		24BCC08F1B3978C300E9A79C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		24BCC0781B3978C200E9A79C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				24BCC0841B3978C300E9A79C /* ViewController.swift in Sources */,
+				24BCC0821B3978C300E9A79C /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		24BCC08D1B3978C300E9A79C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				24BCC0981B3978C300E9A79C /* GourmetAppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		24BCC0931B3978C300E9A79C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 24BCC07B1B3978C200E9A79C /* GourmetApp */;
+			targetProxy = 24BCC0921B3978C300E9A79C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		24BCC0851B3978C300E9A79C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				24BCC0861B3978C300E9A79C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		24BCC08A1B3978C300E9A79C /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				24BCC08B1B3978C300E9A79C /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		24BCC0991B3978C300E9A79C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		24BCC09A1B3978C300E9A79C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		24BCC09C1B3978C300E9A79C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = GourmetApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		24BCC09D1B3978C300E9A79C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = GourmetApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		24BCC09F1B3978C300E9A79C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = GourmetAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GourmetApp.app/GourmetApp";
+			};
+			name = Debug;
+		};
+		24BCC0A01B3978C300E9A79C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = GourmetAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GourmetApp.app/GourmetApp";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		24BCC0771B3978C200E9A79C /* Build configuration list for PBXProject "GourmetApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				24BCC0991B3978C300E9A79C /* Debug */,
+				24BCC09A1B3978C300E9A79C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		24BCC09B1B3978C300E9A79C /* Build configuration list for PBXNativeTarget "GourmetApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				24BCC09C1B3978C300E9A79C /* Debug */,
+				24BCC09D1B3978C300E9A79C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		24BCC09E1B3978C300E9A79C /* Build configuration list for PBXNativeTarget "GourmetAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				24BCC09F1B3978C300E9A79C /* Debug */,
+				24BCC0A01B3978C300E9A79C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 24BCC0741B3978C200E9A79C /* Project object */;
+}
