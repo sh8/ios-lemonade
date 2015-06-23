@@ -1,13 +1,49 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="CoM-4W-LjZ">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Tab Bar Controller-->
+        <scene sceneID="9pG-0q-pIq">
+            <objects>
+                <tabBarController id="CoM-4W-LjZ" sceneMemberID="viewController">
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="fyo-we-zds">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="2R7-Vp-eYS" kind="relationship" relationship="viewControllers" id="I0X-Jg-ZR3"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lv4-uD-0Wz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-792" y="-410"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="VDO-8V-11N">
+            <objects>
+                <navigationController id="2R7-Vp-eYS" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" image="tabbar-search" id="J9j-4V-cJ3"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mzr-Yo-Qrn">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="Hjh-s4-aKm"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oLn-0G-19C" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-114" y="188"/>
+        </scene>
+        <!--Search View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" userLabel="Search View Controller" customClass="SearchViewController" customModule="GourmetApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -15,11 +51,30 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Suh-F4-Wap">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </mapView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="Suh-F4-Wap" secondAttribute="trailing" constant="-16" id="TOC-xd-RDB"/>
+                            <constraint firstItem="Suh-F4-Wap" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" id="YIS-Xi-lS9"/>
+                            <constraint firstItem="Suh-F4-Wap" firstAttribute="bottom" secondItem="kh9-bI-dsS" secondAttribute="bottomMargin" id="aUy-Pd-hfL"/>
+                            <constraint firstItem="Suh-F4-Wap" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="biO-mF-x8Y"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="xqf-dy-zDC"/>
+                    <connections>
+                        <outlet property="map" destination="Suh-F4-Wap" id="3yc-3W-Y0e"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="553" y="188"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="tabbar-search" width="30" height="30"/>
+    </resources>
 </document>
