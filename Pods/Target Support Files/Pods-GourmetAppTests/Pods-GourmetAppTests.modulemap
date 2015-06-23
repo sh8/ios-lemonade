@@ -1,0 +1,6 @@
+framework module Pods_GourmetAppTests {
+  umbrella header "Pods-GourmetAppTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

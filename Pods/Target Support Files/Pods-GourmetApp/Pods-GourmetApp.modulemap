@@ -1,0 +1,6 @@
+framework module Pods_GourmetApp {
+  umbrella header "Pods-GourmetApp-umbrella.h"
+
+  export *
+  module * { export * }
+}
