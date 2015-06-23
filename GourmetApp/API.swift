@@ -13,20 +13,13 @@ import Alamofire_SwiftyJSON
 
 public class API {
     // APIのベースURL.Development限定
-    var api_url = "http://160.16.97.128:3000/api/v1/"
-    
-    public class var sharedInstance: API? {
-        struct Static {
-            static let instance = API()
-        }
-        return Static.instance
-    }
+    static var api_url = "http://160.16.97.128:3000/api/v1/"
     
     // パラメタなしのイニシャライザ
     private init(){}
     
     // AlamofireをAPIクラスのrequestメソッドでラップした.
-    func request(method: Alamofire.Method, url: String, params: [String: AnyObject], completion: (NSURLRequest, NSHTTPURLResponse?, JSON, NSError?) -> Void) -> Void {
+    class func request(method: Alamofire.Method, url: String, params: [String: AnyObject], completion: (NSURLRequest, NSHTTPURLResponse?, JSON, NSError?) -> Void) -> Void {
         var request_url = api_url + url
         
         Alamofire.request(method, request_url, parameters: params).responseSwiftyJSON({
