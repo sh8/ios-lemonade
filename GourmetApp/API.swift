@@ -13,7 +13,9 @@ import Alamofire_SwiftyJSON
 
 public class API {
     // APIのベースURL.Development限定
-    static var api_url = "http://160.16.97.128:3000/api/v1/"
+    static let api_url = "http://160.16.97.128:3000/api/v1/"
+    static let APILoadStartNotification = "APILoadStartNotification"
+    static let APILoadCompleteNotification = "APILoadCompleteNotification"
     
     // パラメタなしのイニシャライザ
     private init(){}
@@ -25,6 +27,7 @@ public class API {
         Alamofire.request(method, request_url, parameters: params).responseSwiftyJSON({
             (request, response, json, error) -> Void in
                 completion(request, response, json, error)
+                NSNotificationCenter.defaultCenter().postNotificationName(self.APILoadCompleteNotification, object: nil)
             }
         )
     }
