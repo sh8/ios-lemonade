@@ -26,19 +26,10 @@ public class Restaurant: Printable {
     public var description: String {
         get {
             var string = "\nName: \(name)\n"
+            string += "Lat: \(lat)\n"
+            string += "Lon: \(lon)\n"
+            string += "address: \(address)\n"
             return string
         }
-    }
-    
-    public class func search(#lat: Double, lon: Double) -> [Restaurant]{
-        var restaurants: [Restaurant] = [Restaurant]()
-        API.request(.GET, url: "restaurants/search", params: ["lat": lat, "lon": lon],
-            completion: {
-                (request, response, json, error) -> Void in
-                // TODO: 下記にjson取得終了時に行いたい処理を書く
-                println(json)
-                
-        })
-        return [Restaurant]()
     }
 }
