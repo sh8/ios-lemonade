@@ -22,7 +22,6 @@ public class Restaurant: Printable {
     public var city: String? = nil
     public var state: String? = nil
     public var cc: String? = nil
-    private static var api: API? = API.sharedInstance
 
     public var description: String {
         get {
@@ -33,7 +32,7 @@ public class Restaurant: Printable {
     
     public class func search(#lat: Double, lon: Double) -> [Restaurant]{
         var restaurants: [Restaurant] = [Restaurant]()
-        api?.request(.GET, url: "restaurants/search", params: ["lon": 1.111, "lat": 1.111],
+        API.request(.GET, url: "restaurants/search", params: ["lat": lat, "lon": lon],
             completion: {
                 (request, response, json, error) -> Void in
                 // TODO: 下記にjson取得終了時に行いたい処理を書く
