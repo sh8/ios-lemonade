@@ -17,6 +17,7 @@ class SearchViewController: UIViewController {
     let nsnc = NSNotificationCenter.defaultCenter()
     var observers = [NSObjectProtocol]()
     let ls = LocationService()
+    internal var here: (lat: Double, lon: Double)? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,13 +30,12 @@ class SearchViewController: UIViewController {
             queue: nil,
             usingBlock: {
             (notification) in
-                // self.restaurant.first?.latではなく
-                // ユーザの現在地を渡すようにする.
-                if let lat = self.restaurants.first?.lat {
-                    if let lon = self.restaurants.first?.lon{
+                // 現在地を取得し、現在地を中心として飲食店を表示する.
+                if let lat = self.here?.lat{
+                    if let lon = self.here?.lon{
+                        // 表示範囲を最も距離の遠い飲食店に合わせる
                         let dist_lat = self.restaurants.last?.lat
                         let dist_lon = self.restaurants.last?.lon
-                        // 表示範囲を最も距離の遠い飲食店に合わせる
                         let diff = (
                             lat: abs(dist_lat! - lat),
                             lon: abs(dist_lon! - lon)
@@ -141,7 +141,8 @@ class SearchViewController: UIViewController {
                     if let userInfo = notification.userInfo as? [String: CLLocation] {
                         if let clloc = userInfo["location"] {
                             self.map.showsUserLocation = true
-                            self.searchRestaurant(lat: clloc.coordinate.latitude, lon: clloc.coordinate.longitude)
+                            self.here = (lat: clloc.coordinate.latitude, lon: clloc.coordinate.longitude)
+                            self.searchRestaurant(lat: clloc.coordinate.latitude , lon: clloc.coordinate.longitude)
                         }
                     }
                 }
