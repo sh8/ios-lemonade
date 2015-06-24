@@ -140,6 +140,7 @@ class SearchViewController: UIViewController {
                     notification in
                     if let userInfo = notification.userInfo as? [String: CLLocation] {
                         if let clloc = userInfo["location"] {
+                            self.map.showsUserLocation = true
                             self.searchRestaurant(lat: clloc.coordinate.latitude, lon: clloc.coordinate.longitude)
                         }
                     }
