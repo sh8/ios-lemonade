@@ -15,13 +15,13 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var map: MKMapView!
     var restaurants: [Restaurant] = [Restaurant]()
     let nsnc = NSNotificationCenter.defaultCenter()
+    var observers = [NSObjectProtocol]()
+    let ls = LocationService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // search_restaurantメソッドは現在位置情報取得のオブザーバーを受け取った後に実行する
-        // 例: LSDidUpdateLocationNotificationを受信
-        self.search_restaurant(lat: 1.11, lon: 1.11)
+        ls.startUpdatingLocation()
+        self.setObserver()
         
         // 飲食店の位置を地図に表示. APIの読み込み終了時に実行される.
         nsnc.addObserverForName(API.APILoadCompleteNotification,
@@ -70,7 +70,7 @@ class SearchViewController: UIViewController {
     }
     
     // MARK: - アプリケーションロジック
-    func search_restaurant(#lat: Double, lon: Double){
+    func searchRestaurant(#lat: Double, lon: Double){
         API.request(.GET, url: "restaurants/search", params: ["lat": lat, "lon": lon],
             completion: {
                 (request, response, json, error) -> Void in
@@ -85,6 +85,80 @@ class SearchViewController: UIViewController {
                     self.restaurants.append(restaurant)
                 }
         })
+    }
+    
+    func setObserver(){
+        // 位置情報取得を禁止している場合
+        observers.append(
+            nsnc.addObserverForName(
+                ls.LSAuthDeniedNotification,
+                object: nil,
+                queue: nil,
+                usingBlock: {
+                    notification in
+                    //位置情報がONになっていないダイアログ表示
+                    self.presentViewController(self.ls.locationServiceDisabledAlert, animated: true, completion: nil)
+                }
+            )
+        )
+        
+        // 位置情報取得を制限している場合
+        observers.append(
+            nsnc.addObserverForName(
+                ls.LSAuthDeniedNotification,
+                object: nil,
+                queue: nil,
+                usingBlock: {
+                    notification in
+                    //位置情報が制限されているダイアログ表示
+                    self.presentViewController(self.ls.locationServiceRestrictedAlert, animated: true, completion: nil)
+                }
+            )
+        )
+        
+        // 位置情報取得に失敗した場合
+        observers.append(
+            nsnc.addObserverForName(
+                ls.LSAuthDeniedNotification,
+                object: nil,
+                queue: nil,
+                usingBlock: {
+                    notification in
+                    //位置情報取得に失敗したダイアログ
+                    self.presentViewController(self.ls.locationServiceDidFailAlert, animated: true, completion: nil)
+                }
+            )
+        )
+        
+        // 位置情報を取得した場合
+        observers.append(
+            nsnc.addObserverForName(
+                ls.LSDidUpdateLocationNotification,
+                object: nil,
+                queue: nil,
+                usingBlock: {
+                    notification in
+                    if let userInfo = notification.userInfo as? [String: CLLocation] {
+                        if let clloc = userInfo["location"] {
+                            self.searchRestaurant(lat: clloc.coordinate.latitude, lon: clloc.coordinate.longitude)
+                        }
+                    }
+                }
+            )
+        )
+        
+        // 位置情報が利用可能になったとき
+        observers.append(
+            nsnc.addObserverForName(
+                ls.LSAuthorizedNotification,
+                object: nil,
+                queue: nil,
+                usingBlock: {
+                    notification in
+                    // TODO: - 位置情報が利用可能になった時の処理を書く
+                }
+            )
+        )
     }
 }
 
