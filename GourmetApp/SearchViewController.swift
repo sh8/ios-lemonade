@@ -18,19 +18,32 @@ class SearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.search_restaurant(lat: 1.11, lon: 1.11)
-        // 飲食店の位置を地図に表示
         
+        // search_restaurantメソッドは現在位置情報取得のオブザーバーを受け取った後に実行する
+        // 例: LSDidUpdateLocationNotificationを受信
+        self.search_restaurant(lat: 1.11, lon: 1.11)
+        
+        // 飲食店の位置を地図に表示. APIの読み込み終了時に実行される.
         nsnc.addObserverForName(API.APILoadCompleteNotification,
             object: nil,
             queue: nil,
             usingBlock: {
             (notification) in
-                
-                if let lat = self.restaurants[0].lat {
-                    if let lon = self.restaurants[0].lon{
+                // self.restaurant.first?.latではなく
+                // ユーザの現在地を渡すようにする.
+                if let lat = self.restaurants.first?.lat {
+                    if let lon = self.restaurants.first?.lon{
+                        let dist_lat = self.restaurants.last?.lat
+                        let dist_lon = self.restaurants.last?.lon
+                        // 表示範囲を最も距離の遠い飲食店に合わせる
+                        let diff = (
+                            lat: abs(dist_lat! - lat),
+                            lon: abs(dist_lon! - lon)
+                        )
                         let cllc = CLLocationCoordinate2D(latitude: lat, longitude: lon)
-                        let mkcr = MKCoordinateRegionMakeWithDistance(cllc, 500, 500)
+                        // 表示範囲を設定する
+                        let mkcs = MKCoordinateSpanMake(diff.lat * 2.4, diff.lon * 2.4)
+                        let mkcr = MKCoordinateRegionMake(cllc, mkcs)
                         self.map.setRegion(mkcr, animated: false)
                     }
                 }
@@ -69,7 +82,6 @@ class SearchViewController: UIViewController {
                     restaurant.lat = value["lat"].doubleValue
                     restaurant.lon = value["lon"].doubleValue
                     restaurant.address = value["address"].string
-                    println(restaurant)
                     self.restaurants.append(restaurant)
                 }
         })
