@@ -11,7 +11,6 @@ import UIKit
 class PostViewController: UIViewController, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var caption: UITextView!
-    @IBOutlet weak var placeHolder: UILabel!
     @IBOutlet weak var selectRestaurantButton: UIButton!
     @IBOutlet weak var restaurantName: UILabel!
     @IBOutlet weak var addPhotoButton: UIButton!
@@ -86,6 +85,14 @@ class PostViewController: UIViewController, UITextViewDelegate, UIImagePickerCon
         presentViewController(alert, animated: true, completion: nil)
     }
     
+    @IBAction func submitButtonTapped(sender: UIButton) {
+        println("submitButtonTapped")
+        let imageData = UIImagePNGRepresentation(image)
+        API.upload("posts/create", params: ["user_id": "0", "name": "shun"], data: imageData, completion: {
+            (request, response, json, error) -> Void in
+        })
+    }
+
     // MARK: - UIImagePickerControllerDelegate
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         ipc.dismissViewControllerAnimated(true, completion: nil)
@@ -101,21 +108,6 @@ class PostViewController: UIViewController, UITextViewDelegate, UIImagePickerCon
         ipc.dismissViewControllerAnimated(true, completion: nil)
     }
 
-    // MARK: - UITextViewDelegate
-    //textviewがフォーカスされたら、Labelを非表示
-    func textViewShouldBeginEditing(textView: UITextView) -> Bool
-    {
-        placeHolder.hidden = true
-        return true
-    }
-    
-    //textviewからフォーカスが外れて、TextViewが空だったらLabelを再び表示
-    func textViewDidEndEditing(textView: UITextView) {
-        if(caption.text.isEmpty){
-            placeHolder.hidden = false
-        }
-    }
-    
     // MARK: - UIPartsLayout
     func partsLayout(){
         caption.layer.borderWidth = 1
