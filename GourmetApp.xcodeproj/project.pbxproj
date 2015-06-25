@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2432E4F21B3C42960042579E /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2432E4F11B3C42960042579E /* Post.swift */; };
 		243945091B39889D0087EB83 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243945081B39889D0087EB83 /* API.swift */; };
 		244354D91B3AB19000EDAF03 /* CustomUIView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 244354D81B3AB19000EDAF03 /* CustomUIView.framework */; };
 		244354DA1B3AB1DD00EDAF03 /* CustomUIView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 244354D81B3AB19000EDAF03 /* CustomUIView.framework */; };
@@ -14,6 +15,8 @@
 		244354DE1B3ABA1700EDAF03 /* SelectRestaurantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244354DD1B3ABA1700EDAF03 /* SelectRestaurantViewController.swift */; };
 		244354E51B3ADC0C00EDAF03 /* SelectRestaurantTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244354E41B3ADC0C00EDAF03 /* SelectRestaurantTableViewCell.swift */; };
 		244354F11B3B860800EDAF03 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 244354EF1B3B860800EDAF03 /* Main.storyboard */; };
+		244354F31B3BC5CD00EDAF03 /* MypageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244354F21B3BC5CD00EDAF03 /* MypageCollectionViewCell.swift */; };
+		244354F51B3BC5E000EDAF03 /* MypageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244354F41B3BC5E000EDAF03 /* MypageViewController.swift */; };
 		246E03241B39807E008C1D96 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246E03231B39807E008C1D96 /* Restaurant.swift */; };
 		24BCC0821B3978C300E9A79C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BCC0811B3978C300E9A79C /* AppDelegate.swift */; };
 		24BCC0841B3978C300E9A79C /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BCC0831B3978C300E9A79C /* SearchViewController.swift */; };
@@ -50,12 +53,17 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2432E4F11B3C42960042579E /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		2432E4FD1B3C4BE00042579E /* GourmetApp-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GourmetApp-Bridging-Header.h"; sourceTree = "<group>"; };
+		2432E4FE1B3C4BE00042579E /* GourmetAppTests-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GourmetAppTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		243945081B39889D0087EB83 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		244354D61B3AA59700EDAF03 /* CustomUIView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CustomUIView.framework; path = "CustomUIView/build/Debug-iphoneos/CustomUIView.framework"; sourceTree = "<group>"; };
 		244354D81B3AB19000EDAF03 /* CustomUIView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CustomUIView.framework; path = "Build/Products/Debug-iphoneos/CustomUIView.framework"; sourceTree = "<group>"; };
 		244354DD1B3ABA1700EDAF03 /* SelectRestaurantViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectRestaurantViewController.swift; sourceTree = "<group>"; };
 		244354E41B3ADC0C00EDAF03 /* SelectRestaurantTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectRestaurantTableViewCell.swift; sourceTree = "<group>"; };
 		244354F01B3B860800EDAF03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		244354F21B3BC5CD00EDAF03 /* MypageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MypageCollectionViewCell.swift; sourceTree = "<group>"; };
+		244354F41B3BC5E000EDAF03 /* MypageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MypageViewController.swift; sourceTree = "<group>"; };
 		246E03231B39807E008C1D96 /* Restaurant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		24BCC07C1B3978C200E9A79C /* GourmetApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GourmetApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24BCC0801B3978C200E9A79C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -107,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				244354E41B3ADC0C00EDAF03 /* SelectRestaurantTableViewCell.swift */,
+				244354F21B3BC5CD00EDAF03 /* MypageCollectionViewCell.swift */,
 			);
 			name = UIViews;
 			sourceTree = "<group>";
@@ -117,6 +126,7 @@
 				24BCC0831B3978C300E9A79C /* SearchViewController.swift */,
 				24F83F2E1B3A9356004E9C7E /* PostViewController.swift */,
 				244354DD1B3ABA1700EDAF03 /* SelectRestaurantViewController.swift */,
+				244354F41B3BC5E000EDAF03 /* MypageViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -125,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				246E03231B39807E008C1D96 /* Restaurant.swift */,
+				2432E4F11B3C42960042579E /* Post.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -162,6 +173,8 @@
 				244354EF1B3B860800EDAF03 /* Main.storyboard */,
 				24BCC08A1B3978C300E9A79C /* LaunchScreen.xib */,
 				24BCC07F1B3978C200E9A79C /* Supporting Files */,
+				2432E4FD1B3C4BE00042579E /* GourmetApp-Bridging-Header.h */,
+				2432E4FE1B3C4BE00042579E /* GourmetAppTests-Bridging-Header.h */,
 			);
 			path = GourmetApp;
 			sourceTree = "<group>";
@@ -366,6 +379,9 @@
 				244354E51B3ADC0C00EDAF03 /* SelectRestaurantTableViewCell.swift in Sources */,
 				24BCC0841B3978C300E9A79C /* SearchViewController.swift in Sources */,
 				24F83F2D1B3A7F1C004E9C7E /* LocationService.swift in Sources */,
+				2432E4F21B3C42960042579E /* Post.swift in Sources */,
+				244354F51B3BC5E000EDAF03 /* MypageViewController.swift in Sources */,
+				244354F31B3BC5CD00EDAF03 /* MypageCollectionViewCell.swift in Sources */,
 				24BCC0821B3978C300E9A79C /* AppDelegate.swift in Sources */,
 				243945091B39889D0087EB83 /* API.swift in Sources */,
 				246E03241B39807E008C1D96 /* Restaurant.swift in Sources */,
@@ -496,6 +512,7 @@
 			baseConfigurationReference = D0C854B4E8C4F425036D1395 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/CustomUIView/build/Debug-iphoneos",
@@ -504,6 +521,8 @@
 				INFOPLIST_FILE = GourmetApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "GourmetApp/GourmetApp-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -512,6 +531,7 @@
 			baseConfigurationReference = 4E625FEF6CF39DB1EBF92F83 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/CustomUIView/build/Debug-iphoneos",
@@ -520,6 +540,7 @@
 				INFOPLIST_FILE = GourmetApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "GourmetApp/GourmetApp-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -527,6 +548,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -538,6 +560,8 @@
 				INFOPLIST_FILE = GourmetAppTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "GourmetApp/GourmetAppTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GourmetApp.app/GourmetApp";
 			};
 			name = Debug;
@@ -546,6 +570,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -553,6 +578,7 @@
 				INFOPLIST_FILE = GourmetAppTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "GourmetApp/GourmetAppTests-Bridging-Header.h";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GourmetApp.app/GourmetApp";
 			};
 			name = Release;
