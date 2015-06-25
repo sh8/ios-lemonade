@@ -10,6 +10,8 @@ pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
 # Alamofire-SwiftyJSON
 pod 'Alamofire-SwiftyJSON', :git => "https://github.com/SwiftyJSON/Alamofire-SwiftyJSON.git"
 
+pod 'SDWebImage'
+
 target 'GourmetApp' do
 end
 
