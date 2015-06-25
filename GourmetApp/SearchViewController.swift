@@ -29,22 +29,24 @@ class SearchViewController: UIViewController {
             object: nil,
             queue: nil,
             usingBlock: {
-            (notification) in
+                (notification) in
                 // 現在地を取得し、現在地を中心として飲食店を表示する.
                 if let lat = self.here?.lat{
                     if let lon = self.here?.lon{
                         // 表示範囲を最も距離の遠い飲食店に合わせる
-                        let dist_lat = self.restaurants.last?.lat
-                        let dist_lon = self.restaurants.last?.lon
-                        let diff = (
-                            lat: abs(dist_lat! - lat),
-                            lon: abs(dist_lon! - lon)
-                        )
-                        let cllc = CLLocationCoordinate2D(latitude: lat, longitude: lon)
-                        // 表示範囲を設定する
-                        let mkcs = MKCoordinateSpanMake(diff.lat * 2.4, diff.lon * 2.4)
-                        let mkcr = MKCoordinateRegionMake(cllc, mkcs)
-                        self.map.setRegion(mkcr, animated: false)
+                        if let dist_lat = self.restaurants.last?.lat{
+                            if let dist_lon = self.restaurants.last?.lon{
+                                let diff = (
+                                    lat: abs(dist_lat - lat),
+                                    lon: abs(dist_lon - lon)
+                                )
+                                let cllc = CLLocationCoordinate2D(latitude: lat, longitude: lon)
+                                // 表示範囲を設定する
+                                let mkcs = MKCoordinateSpanMake(diff.lat * 2.4, diff.lon * 2.4)
+                                let mkcr = MKCoordinateRegionMake(cllc, mkcs)
+                                self.map.setRegion(mkcr, animated: false)
+                            }
+                        }
                     }
                 }
                 
