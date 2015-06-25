@@ -10,7 +10,8 @@ import UIKit
 
 class SelectRestaurantTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var restaurantName: UILabel!
+    @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var address: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -20,7 +21,8 @@ class SelectRestaurantTableViewCell: UITableViewCell {
     var restaurant: Restaurant = Restaurant() {
         didSet {
             // 店舗名を表示
-            restaurantName.text = restaurant.name
+            name.text = restaurant.name
+            address.text = restaurant.address
         }
     }
 
