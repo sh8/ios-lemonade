@@ -86,6 +86,7 @@ class SelectRestaurantViewController: UIViewController, UITableViewDelegate, UIT
                 // TODO: 下記にjson取得終了時に行いたい処理を書く
                 for (key, value) in json {
                     var restaurant = Restaurant()
+                    restaurant.id = value["id"].int
                     restaurant.name = value["name"].string
                     restaurant.tel = value["tel"].string
                     restaurant.lat = value["lat"].doubleValue
