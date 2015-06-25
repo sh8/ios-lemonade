@@ -14,6 +14,8 @@ class SelectRestaurantViewController: UIViewController, UITableViewDelegate, UIT
     let nsnc = NSNotificationCenter.defaultCenter()
     var observers = [NSObjectProtocol]()
     let ls = LocationService()
+    weak var delegate: PostViewController?
+    
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -46,13 +48,20 @@ class SelectRestaurantViewController: UIViewController, UITableViewDelegate, UIT
     
     // MARK: - UITableViewDelegate
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 50
+        return 80
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        self.dismissViewControllerAnimated(true, completion: {
+            self.delegate?.restaurant = self.restaurants[indexPath.row]
+            self.delegate?.restaurantName.text = self.restaurants[indexPath.row].name
+        })
     }
     
     // MARK: - UITableViewDataSource
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
-            println(restaurants.count)
             return restaurants.count
         }
         return 0
@@ -71,7 +80,7 @@ class SelectRestaurantViewController: UIViewController, UITableViewDelegate, UIT
     
     // MARK: - アプリケーションロジック
     func searchRestaurant(#lat: Double, lon: Double){
-        API.request(.GET, url: "restaurants/search", params: ["lat": lat, "lon": lon, "limit": 20, "start": restaurants.count + 1],
+        API.request(.GET, url: "restaurants/near", params: ["lat": lat, "lon": lon, "limit": 20, "start": restaurants.count],
             completion: {
                 (request, response, json, error) -> Void in
                 // TODO: 下記にjson取得終了時に行いたい処理を書く
