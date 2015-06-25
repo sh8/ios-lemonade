@@ -88,7 +88,7 @@ class PostViewController: UIViewController, UITextViewDelegate, UIImagePickerCon
     @IBAction func submitButtonTapped(sender: UIButton) {
         println("submitButtonTapped")
         let imageData = UIImagePNGRepresentation(image)
-        API.upload("posts/create", params: ["user_id": "0", "name": "shun"], data: imageData, completion: {
+        API.upload("posts/create", params: ["id": "\(restaurant!.id!)", "user_id": "0", "name": "shun"], data: imageData, completion: {
             (request, response, json, error) -> Void in
         })
     }
