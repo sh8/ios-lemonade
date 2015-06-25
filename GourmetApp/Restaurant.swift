@@ -9,6 +9,7 @@
 import Foundation
 
 public class Restaurant: Printable {
+    public var id: Int? = nil
     public var name: String? = nil
     public var ruby: String? = nil
     public var lat: Double? = nil
