@@ -107,13 +107,16 @@ class SearchViewController: UIViewController, UIGestureRecognizerDelegate, MKMap
         let search = MKLocalSearch(request: request)
         search.startWithCompletionHandler({
             (response:MKLocalSearchResponse!, error:NSError!) in
-            let item = response.mapItems.last as! MKMapItem
-            self.cllc?.latitude = item.placemark.coordinate.latitude
-            self.cllc?.longitude = item.placemark.coordinate.longitude
-            let mkcr = MKCoordinateRegionMakeWithDistance(self.cllc!, 500, 500)
-            self.map.setRegion(mkcr, animated: false)
-            self.searchRestaurant(lat: self.cllc!.latitude, lon: self.cllc!.longitude)
-            self.searchField.resignFirstResponder()
+            if let res = response {
+                if let item = res.mapItems.last as? MKMapItem {
+                    self.cllc?.latitude = item.placemark.coordinate.latitude
+                    self.cllc?.longitude = item.placemark.coordinate.longitude
+                    let mkcr = MKCoordinateRegionMakeWithDistance(self.cllc!, 500, 500)
+                    self.map.setRegion(mkcr, animated: false)
+                    self.searchRestaurant(lat: self.cllc!.latitude, lon: self.cllc!.longitude)
+                    self.searchField.resignFirstResponder()
+                }
+            }
         })
         return true
     }
