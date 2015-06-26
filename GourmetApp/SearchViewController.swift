@@ -10,19 +10,23 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class SearchViewController: UIViewController {
+class SearchViewController: UIViewController, UIGestureRecognizerDelegate, MKMapViewDelegate {
 
     @IBOutlet weak var map: MKMapView!
     @IBOutlet weak var searchField: UITextField!
+    @IBOutlet var panGesture: UIPanGestureRecognizer!
     var restaurants: [Restaurant] = [Restaurant]()
     let nsnc = NSNotificationCenter.defaultCenter()
     var observers = [NSObjectProtocol]()
+    var cllc: CLLocationCoordinate2D? = nil
+    var isFirstView = true
     let ls = LocationService()
-    internal var here: (lat: Double, lon: Double)? = nil
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         ls.startUpdatingLocation()
+        panGesture.delegate = self
+        map.delegate = self
         self.setObserver()
         
         // 飲食店の位置を地図に表示. APIの読み込み終了時に実行される.
@@ -32,27 +36,36 @@ class SearchViewController: UIViewController {
             usingBlock: {
                 (notification) in
                 // 現在地を取得し、現在地を中心として飲食店を表示する.
-                if let lat = self.here?.lat{
-                    if let lon = self.here?.lon{
-                        // 表示範囲を最も距離の遠い飲食店に合わせる
-                        if let dist_lat = self.restaurants.last?.lat{
-                            if let dist_lon = self.restaurants.last?.lon{
-                                let diff = (
-                                    lat: abs(dist_lat - lat),
-                                    lon: abs(dist_lon - lon)
-                                )
-                                let cllc = CLLocationCoordinate2D(latitude: lat, longitude: lon)
-                                // 表示範囲を設定する
-                                let mkcs = MKCoordinateSpanMake(diff.lat * 2.4, diff.lon * 2.4)
-                                let mkcr = MKCoordinateRegionMake(cllc, mkcs)
-                                self.map.setRegion(mkcr, animated: false)
+                // 最初のみこの作業を行う.
+                if self.isFirstView {
+                    if let lat = self.cllc?.latitude{
+                        if let lon = self.cllc?.longitude{
+                            // 表示範囲を最も距離の遠い飲食店に合わせる
+                            if let dist_lat = self.restaurants.last?.lat{
+                                if let dist_lon = self.restaurants.last?.lon{
+                                    let diff = (
+                                        lat: abs(dist_lat - lat),
+                                        lon: abs(dist_lon - lon)
+                                    )
+                                    // 表示範囲を設定する
+                                    let mkcs = MKCoordinateSpanMake(diff.lat * 2.4, diff.lon * 2.4)
+                                    let mkcr = MKCoordinateRegionMake(self.cllc!, mkcs)
+                                    self.map.setRegion(mkcr, animated: false)
+                                }
                             }
                         }
                     }
                 }
                 
+                
                 // ピンを設定
-                for (index, restaurant) in enumerate(self.restaurants) {
+                self.map.removeAnnotations(self.map.annotations)
+                for restaurant in self.restaurants {
+                    let ann = self.map.annotations as! [MKAnnotation]
+                    let same = ann.filter({$0.title == restaurant.name})
+                    if !same.isEmpty {
+                        continue
+                    }
                     if let lat = restaurant.lat {
                         if let lon = restaurant.lon {
                             var pin = MKPointAnnotation()
@@ -72,8 +85,34 @@ class SearchViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    // MARK: - IBAction
     @IBAction func onTapped(sender: UITapGestureRecognizer) {
         searchField.resignFirstResponder()
+    }
+    
+    @IBAction func handlePan(sender: UIPanGestureRecognizer) {
+        if sender.state == UIGestureRecognizerState.Ended {
+            cllc?.latitude = map.centerCoordinate.latitude
+            cllc?.longitude = map.centerCoordinate.longitude
+            isFirstView = false
+            self.searchRestaurant(lat: map.centerCoordinate.latitude, lon: map.centerCoordinate.longitude)
+        }
+    }
+    
+    // MARK: - MKMapViewDelegate
+    func mapView(mapView: MKMapView!, didAddAnnotationViews views: [AnyObject]!) {
+        for view in views as! [MKAnnotationView]{
+            var endFrame: CGRect = view.frame
+            view.frame = CGRectOffset(endFrame, 0, -500)
+            UIView.animateWithDuration(0.5, animations: {
+                view.frame = endFrame
+            })
+        }
+    }
+    
+    // MARK: - UIGestureRecognizerDelegate
+    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
     }
     
     // MARK: - アプリケーションロジック
@@ -82,6 +121,7 @@ class SearchViewController: UIViewController {
             completion: {
                 (request, response, json, error) -> Void in
                 // TODO: 下記にjson取得終了時に行いたい処理を書く
+                self.restaurants = []
                 for (key, value) in json {
                     var restaurant = Restaurant()
                     restaurant.name = value["name"].string
@@ -148,7 +188,7 @@ class SearchViewController: UIViewController {
                     if let userInfo = notification.userInfo as? [String: CLLocation] {
                         if let clloc = userInfo["location"] {
                             self.map.showsUserLocation = true
-                            self.here = (lat: clloc.coordinate.latitude, lon: clloc.coordinate.longitude)
+                            self.cllc = CLLocationCoordinate2D(latitude: clloc.coordinate.latitude, longitude: clloc.coordinate.longitude)
                             self.searchRestaurant(lat: clloc.coordinate.latitude , lon: clloc.coordinate.longitude)
                         }
                     }
