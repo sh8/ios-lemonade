@@ -124,7 +124,7 @@
                                     </collectionViewCell>
                                 </cells>
                                 <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="UserInfoHeader" id="jfR-Fp-Q46" customClass="MypageCollectionReusableView" customModule="GourmetApp" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
+                                    <rect key="frame" x="0.0" y="64" width="600" height="119"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tabbar-photo" translatesAutoresizingMaskIntoConstraints="NO" id="ojo-yc-Pr8">
@@ -228,6 +228,13 @@
                                         <constraint firstItem="ojo-yc-Pr8" firstAttribute="leading" secondItem="jfR-Fp-Q46" secondAttribute="leadingMargin" constant="7" id="zAt-yC-vFp"/>
                                         <constraint firstItem="SDk-TX-RIT" firstAttribute="top" secondItem="oq8-oy-bc9" secondAttribute="bottom" constant="8" id="zTX-Cg-Ad1"/>
                                     </constraints>
+                                    <connections>
+                                        <outlet property="editProfileButton" destination="SDk-TX-RIT" id="x9a-Tc-da5"/>
+                                        <outlet property="followNumber" destination="zdx-tx-Eko" id="PeT-Mk-4Ut"/>
+                                        <outlet property="followedNumber" destination="KHH-LQ-WEF" id="DV0-2X-RoL"/>
+                                        <outlet property="postsNumber" destination="zpH-j7-Z8g" id="vTF-Zf-JW1"/>
+                                        <outlet property="userName" destination="jaN-bY-Q2Q" id="RwW-rp-NCk"/>
+                                    </connections>
                                 </collectionReusableView>
                             </collectionView>
                         </subviews>

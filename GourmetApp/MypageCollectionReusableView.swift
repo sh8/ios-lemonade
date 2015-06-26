@@ -9,5 +9,9 @@
 import UIKit
 
 class MypageCollectionReusableView: UICollectionReusableView {
-        
+    @IBOutlet weak var userName: UILabel!
+    @IBOutlet weak var postsNumber: UILabel!
+    @IBOutlet weak var followedNumber: UILabel!
+    @IBOutlet weak var followNumber: UILabel!
+    @IBOutlet weak var editProfileButton: UIButton!
 }
