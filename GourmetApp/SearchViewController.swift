@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class SearchViewController: UIViewController, UIGestureRecognizerDelegate, MKMapViewDelegate {
+class SearchViewController: UIViewController, UIGestureRecognizerDelegate, MKMapViewDelegate, UITextFieldDelegate {
 
     @IBOutlet weak var map: MKMapView!
     @IBOutlet weak var searchField: UITextField!
@@ -27,6 +27,7 @@ class SearchViewController: UIViewController, UIGestureRecognizerDelegate, MKMap
         ls.startUpdatingLocation()
         panGesture.delegate = self
         map.delegate = self
+        searchField.delegate = self
         self.setObserver()
         
         // 飲食店の位置を地図に表示. APIの読み込み終了時に実行される.
@@ -59,7 +60,6 @@ class SearchViewController: UIViewController, UIGestureRecognizerDelegate, MKMap
                 
                 
                 // ピンを設定
-                self.map.removeAnnotations(self.map.annotations)
                 for restaurant in self.restaurants {
                     let ann = self.map.annotations as! [MKAnnotation]
                     let same = ann.filter({$0.title == restaurant.name})
@@ -97,6 +97,25 @@ class SearchViewController: UIViewController, UIGestureRecognizerDelegate, MKMap
             isFirstView = false
             self.searchRestaurant(lat: map.centerCoordinate.latitude, lon: map.centerCoordinate.longitude)
         }
+    }
+    
+    // MARK: - TextFieldDelegate
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        let request = MKLocalSearchRequest()
+        request.naturalLanguageQuery = searchField.text.stringByReplacingOccurrencesOfString(" ", withString: "", options: NSStringCompareOptions.RegularExpressionSearch, range: nil)
+        request.region = map.region
+        let search = MKLocalSearch(request: request)
+        search.startWithCompletionHandler({
+            (response:MKLocalSearchResponse!, error:NSError!) in
+            let item = response.mapItems.last as! MKMapItem
+            self.cllc?.latitude = item.placemark.coordinate.latitude
+            self.cllc?.longitude = item.placemark.coordinate.longitude
+            let mkcr = MKCoordinateRegionMakeWithDistance(self.cllc!, 500, 500)
+            self.map.setRegion(mkcr, animated: false)
+            self.searchRestaurant(lat: self.cllc!.latitude, lon: self.cllc!.longitude)
+            self.searchField.resignFirstResponder()
+        })
+        return true
     }
     
     // MARK: - MKMapViewDelegate
