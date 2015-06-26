@@ -13,6 +13,7 @@ import CoreLocation
 class SearchViewController: UIViewController {
 
     @IBOutlet weak var map: MKMapView!
+    @IBOutlet weak var searchField: UITextField!
     var restaurants: [Restaurant] = [Restaurant]()
     let nsnc = NSNotificationCenter.defaultCenter()
     var observers = [NSObjectProtocol]()
@@ -69,6 +70,10 @@ class SearchViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func onTapped(sender: UITapGestureRecognizer) {
+        searchField.resignFirstResponder()
     }
     
     // MARK: - アプリケーションロジック
