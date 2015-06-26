@@ -10,9 +10,6 @@
 		2432E4F21B3C42960042579E /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2432E4F11B3C42960042579E /* Post.swift */; };
 		2432E5001B3D54220042579E /* MypageCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2432E4FF1B3D54220042579E /* MypageCollectionReusableView.swift */; };
 		243945091B39889D0087EB83 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243945081B39889D0087EB83 /* API.swift */; };
-		244354D91B3AB19000EDAF03 /* CustomUIView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 244354D81B3AB19000EDAF03 /* CustomUIView.framework */; };
-		244354DA1B3AB1DD00EDAF03 /* CustomUIView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 244354D81B3AB19000EDAF03 /* CustomUIView.framework */; };
-		244354DB1B3AB1DD00EDAF03 /* CustomUIView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 244354D81B3AB19000EDAF03 /* CustomUIView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		244354DE1B3ABA1700EDAF03 /* SelectRestaurantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244354DD1B3ABA1700EDAF03 /* SelectRestaurantViewController.swift */; };
 		244354E51B3ADC0C00EDAF03 /* SelectRestaurantTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244354E41B3ADC0C00EDAF03 /* SelectRestaurantTableViewCell.swift */; };
 		244354F11B3B860800EDAF03 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 244354EF1B3B860800EDAF03 /* Main.storyboard */; };
@@ -39,20 +36,6 @@
 		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		244354DC1B3AB1DE00EDAF03 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				244354DB1B3AB1DD00EDAF03 /* CustomUIView.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
 		2432E4F11B3C42960042579E /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		2432E4FD1B3C4BE00042579E /* GourmetApp-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GourmetApp-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -76,6 +59,7 @@
 		24BCC0911B3978C300E9A79C /* GourmetAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GourmetAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		24BCC0961B3978C300E9A79C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		24BCC0971B3978C300E9A79C /* GourmetAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GourmetAppTests.swift; sourceTree = "<group>"; };
+		24EFE2091B3DBD85006098E5 /* Pods_GourmetApp.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_GourmetApp.framework; path = "Pods/../build/Debug-iphoneos/Pods_GourmetApp.framework"; sourceTree = "<group>"; };
 		24F83F2C1B3A7F1C004E9C7E /* LocationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		24F83F2E1B3A9356004E9C7E /* PostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		4E625FEF6CF39DB1EBF92F83 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -88,8 +72,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				244354D91B3AB19000EDAF03 /* CustomUIView.framework in Frameworks */,
-				244354DA1B3AB1DD00EDAF03 /* CustomUIView.framework in Frameworks */,
 				7EAF9428CA2E3D9C346DCB80 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -218,6 +200,7 @@
 		B74110980EFD0744D0326592 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				24EFE2091B3DBD85006098E5 /* Pods_GourmetApp.framework */,
 				244354D81B3AB19000EDAF03 /* CustomUIView.framework */,
 				244354D61B3AA59700EDAF03 /* CustomUIView.framework */,
 				7B4C3FFD9EA4B5068900786D /* Pods.framework */,
@@ -238,7 +221,6 @@
 				24BCC07A1B3978C200E9A79C /* Resources */,
 				717C5677F7791EED453F9DC8 /* Embed Pods Frameworks */,
 				82117EA271617296D2F08F25 /* Copy Pods Resources */,
-				244354DC1B3AB1DE00EDAF03 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -521,6 +503,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/CustomUIView/build/Debug-iphoneos",
 					"$(PROJECT_DIR)/Build/Products/Debug-iphoneos",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
 				INFOPLIST_FILE = GourmetApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -540,6 +523,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/CustomUIView/build/Debug-iphoneos",
 					"$(PROJECT_DIR)/Build/Products/Debug-iphoneos",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
 				INFOPLIST_FILE = GourmetApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
