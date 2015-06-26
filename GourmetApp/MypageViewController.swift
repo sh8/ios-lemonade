@@ -70,6 +70,15 @@ class MypageViewController: UIViewController, UICollectionViewDelegate, UICollec
         return 0
     }
     
+    func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+        // ユーザ情報ヘッダの場合のみ処理する
+        if kind == UICollectionElementKindSectionHeader {
+            let header = collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader, withReuseIdentifier: "UserInfoHeader", forIndexPath: indexPath) as! MypageCollectionReusableView
+            return header
+        }
+        return UICollectionReusableView()
+    }
+    
     // MARK: - UICollectionViewDataSource
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         if indexPath.section == 0 {
