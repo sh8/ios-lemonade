@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2432E4F21B3C42960042579E /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2432E4F11B3C42960042579E /* Post.swift */; };
+		2432E5001B3D54220042579E /* MypageCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2432E4FF1B3D54220042579E /* MypageCollectionReusableView.swift */; };
 		243945091B39889D0087EB83 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243945081B39889D0087EB83 /* API.swift */; };
 		244354D91B3AB19000EDAF03 /* CustomUIView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 244354D81B3AB19000EDAF03 /* CustomUIView.framework */; };
 		244354DA1B3AB1DD00EDAF03 /* CustomUIView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 244354D81B3AB19000EDAF03 /* CustomUIView.framework */; };
@@ -56,6 +57,7 @@
 		2432E4F11B3C42960042579E /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		2432E4FD1B3C4BE00042579E /* GourmetApp-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GourmetApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		2432E4FE1B3C4BE00042579E /* GourmetAppTests-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GourmetAppTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		2432E4FF1B3D54220042579E /* MypageCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MypageCollectionReusableView.swift; sourceTree = "<group>"; };
 		243945081B39889D0087EB83 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		244354D61B3AA59700EDAF03 /* CustomUIView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CustomUIView.framework; path = "CustomUIView/build/Debug-iphoneos/CustomUIView.framework"; sourceTree = "<group>"; };
 		244354D81B3AB19000EDAF03 /* CustomUIView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CustomUIView.framework; path = "Build/Products/Debug-iphoneos/CustomUIView.framework"; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 			children = (
 				244354E41B3ADC0C00EDAF03 /* SelectRestaurantTableViewCell.swift */,
 				244354F21B3BC5CD00EDAF03 /* MypageCollectionViewCell.swift */,
+				2432E4FF1B3D54220042579E /* MypageCollectionReusableView.swift */,
 			);
 			name = UIViews;
 			sourceTree = "<group>";
@@ -380,6 +383,7 @@
 				24BCC0841B3978C300E9A79C /* SearchViewController.swift in Sources */,
 				24F83F2D1B3A7F1C004E9C7E /* LocationService.swift in Sources */,
 				2432E4F21B3C42960042579E /* Post.swift in Sources */,
+				2432E5001B3D54220042579E /* MypageCollectionReusableView.swift in Sources */,
 				244354F51B3BC5E000EDAF03 /* MypageViewController.swift in Sources */,
 				244354F31B3BC5CD00EDAF03 /* MypageCollectionViewCell.swift in Sources */,
 				24BCC0821B3978C300E9A79C /* AppDelegate.swift in Sources */,
