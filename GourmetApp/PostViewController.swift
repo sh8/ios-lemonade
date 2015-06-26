@@ -118,6 +118,14 @@ class PostViewController: UIViewController, UITextViewDelegate, UIImagePickerCon
         submitButton.layer.borderColor = UIColor.blueColor().CGColor
         submitButton.layer.cornerRadius = 10
     }
+    
+    override func viewDidLayoutSubviews() {
+        let image: CGRect = CGRectMake(addPhotoButton.frame.origin.x, addPhotoButton.frame.origin.y, caption.layer.frame.size.width - addPhotoButton.frame.origin.x, view.layer.frame.height)
+        let path = UIBezierPath(rect: image)
+        caption.textContainer.exclusionPaths = [path]
+        caption.addSubview(addPhotoButton)
+        self.view.layoutIfNeeded()
+    }
 
     // MARK: - Navigation
 
