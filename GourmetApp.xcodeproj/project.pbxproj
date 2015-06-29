@@ -21,6 +21,7 @@
 		24BCC0891B3978C300E9A79C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24BCC0881B3978C300E9A79C /* Images.xcassets */; };
 		24BCC08C1B3978C300E9A79C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24BCC08A1B3978C300E9A79C /* LaunchScreen.xib */; };
 		24BCC0981B3978C300E9A79C /* GourmetAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BCC0971B3978C300E9A79C /* GourmetAppTests.swift */; };
+		24EFE20C1B4005BC006098E5 /* AuthenticateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EFE20B1B4005BC006098E5 /* AuthenticateViewController.swift */; };
 		24F83F2D1B3A7F1C004E9C7E /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F83F2C1B3A7F1C004E9C7E /* LocationService.swift */; };
 		24F83F2F1B3A9356004E9C7E /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F83F2E1B3A9356004E9C7E /* PostViewController.swift */; };
 		7EAF9428CA2E3D9C346DCB80 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B4C3FFD9EA4B5068900786D /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
@@ -37,8 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		242666EB1B419019002FC200 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		2432E4F11B3C42960042579E /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
-		2432E4FD1B3C4BE00042579E /* GourmetApp-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GourmetApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		2432E4FE1B3C4BE00042579E /* GourmetAppTests-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GourmetAppTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		2432E4FF1B3D54220042579E /* MypageCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MypageCollectionReusableView.swift; sourceTree = "<group>"; };
 		243945081B39889D0087EB83 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
@@ -60,6 +61,8 @@
 		24BCC0961B3978C300E9A79C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		24BCC0971B3978C300E9A79C /* GourmetAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GourmetAppTests.swift; sourceTree = "<group>"; };
 		24EFE2091B3DBD85006098E5 /* Pods_GourmetApp.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_GourmetApp.framework; path = "Pods/../build/Debug-iphoneos/Pods_GourmetApp.framework"; sourceTree = "<group>"; };
+		24EFE20B1B4005BC006098E5 /* AuthenticateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticateViewController.swift; sourceTree = "<group>"; };
+		24EFE20E1B417EA6006098E5 /* GourmetApp-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GourmetApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		24F83F2C1B3A7F1C004E9C7E /* LocationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		24F83F2E1B3A9356004E9C7E /* PostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		4E625FEF6CF39DB1EBF92F83 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -112,6 +115,7 @@
 				24F83F2E1B3A9356004E9C7E /* PostViewController.swift */,
 				244354DD1B3ABA1700EDAF03 /* SelectRestaurantViewController.swift */,
 				244354F41B3BC5E000EDAF03 /* MypageViewController.swift */,
+				24EFE20B1B4005BC006098E5 /* AuthenticateViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -158,8 +162,8 @@
 				244354EF1B3B860800EDAF03 /* Main.storyboard */,
 				24BCC08A1B3978C300E9A79C /* LaunchScreen.xib */,
 				24BCC07F1B3978C200E9A79C /* Supporting Files */,
-				2432E4FD1B3C4BE00042579E /* GourmetApp-Bridging-Header.h */,
 				2432E4FE1B3C4BE00042579E /* GourmetAppTests-Bridging-Header.h */,
+				24EFE20E1B417EA6006098E5 /* GourmetApp-Bridging-Header.h */,
 			);
 			path = GourmetApp;
 			sourceTree = "<group>";
@@ -200,6 +204,7 @@
 		B74110980EFD0744D0326592 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				242666EB1B419019002FC200 /* Accounts.framework */,
 				24EFE2091B3DBD85006098E5 /* Pods_GourmetApp.framework */,
 				244354D81B3AB19000EDAF03 /* CustomUIView.framework */,
 				244354D61B3AA59700EDAF03 /* CustomUIView.framework */,
@@ -360,6 +365,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				24F83F2F1B3A9356004E9C7E /* PostViewController.swift in Sources */,
+				24EFE20C1B4005BC006098E5 /* AuthenticateViewController.swift in Sources */,
 				244354DE1B3ABA1700EDAF03 /* SelectRestaurantViewController.swift in Sources */,
 				244354E51B3ADC0C00EDAF03 /* SelectRestaurantTableViewCell.swift in Sources */,
 				24BCC0841B3978C300E9A79C /* SearchViewController.swift in Sources */,
@@ -508,7 +514,7 @@
 				INFOPLIST_FILE = GourmetApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "GourmetApp/GourmetApp-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/GourmetApp/GourmetApp-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -528,7 +534,7 @@
 				INFOPLIST_FILE = GourmetApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "GourmetApp/GourmetApp-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/GourmetApp/GourmetApp-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -548,7 +554,7 @@
 				INFOPLIST_FILE = GourmetAppTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "GourmetApp/GourmetAppTests-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/GourmetApp/GourmetAppTests-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GourmetApp.app/GourmetApp";
 			};
@@ -566,7 +572,7 @@
 				INFOPLIST_FILE = GourmetAppTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "GourmetApp/GourmetAppTests-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/GourmetApp/GourmetAppTests-Bridging-Header.h";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GourmetApp.app/GourmetApp";
 			};
 			name = Release;
