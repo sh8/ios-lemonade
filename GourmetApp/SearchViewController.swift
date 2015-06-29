@@ -16,8 +16,8 @@ class SearchViewController: UIViewController, UIGestureRecognizerDelegate, MKMap
     @IBOutlet weak var searchField: UITextField!
     @IBOutlet var panGesture: UIPanGestureRecognizer!
     var restaurants: [Restaurant] = [Restaurant]()
-    let nsnc = NSNotificationCenter.defaultCenter()
     var observers = [NSObjectProtocol]()
+    let nsnc = NSNotificationCenter.defaultCenter()
     var cllc: CLLocationCoordinate2D? = nil
     var isFirstView = true
     let ls = LocationService()
@@ -60,7 +60,7 @@ class SearchViewController: UIViewController, UIGestureRecognizerDelegate, MKMap
                 
                 
                 // ピンを設定
-                for restaurant in self.restaurants {
+                for (index, restaurant) in enumerate(self.restaurants) {
                     let ann = self.map.annotations as! [MKAnnotation]
                     let same = ann.filter({$0.title == restaurant.name})
                     if !same.isEmpty {
