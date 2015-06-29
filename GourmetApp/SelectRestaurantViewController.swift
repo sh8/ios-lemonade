@@ -9,7 +9,7 @@
 import UIKit
 import CoreLocation
 
-class SelectRestaurantViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class SelectRestaurantViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     var restaurants: [Restaurant] = [Restaurant]()
     let nsnc = NSNotificationCenter.defaultCenter()
     var observers = [NSObjectProtocol]()
@@ -17,11 +17,13 @@ class SelectRestaurantViewController: UIViewController, UITableViewDelegate, UIT
     weak var delegate: PostViewController?
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        self.searchField.delegate = self
         
         ls.startUpdatingLocation()
         self.setObserver()
@@ -44,6 +46,14 @@ class SelectRestaurantViewController: UIViewController, UITableViewDelegate, UIT
     
     @IBAction func backButtonTapped(sender: UIBarButtonItem) {
         self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    // MARK: - UITextFieldDelegate
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.restaurants = []
+        ls.startUpdatingLocation()
+        searchField.resignFirstResponder()
+        return true
     }
     
     // MARK: - UITableViewDelegate
@@ -79,8 +89,8 @@ class SelectRestaurantViewController: UIViewController, UITableViewDelegate, UIT
     }
     
     // MARK: - アプリケーションロジック
-    func searchRestaurant(#lat: Double, lon: Double){
-        API.request(.GET, url: "restaurants/near", params: ["lat": lat, "lon": lon, "limit": 20, "start": restaurants.count],
+    func searchRestaurant(#lat: Double, lon: Double, query: String = ""){
+        API.request(.GET, url: "restaurants/near", params: ["lat": lat, "lon": lon, "limit": 20, "start": restaurants.count, "query": query],
             completion: {
                 (request, response, json, error) -> Void in
                 // TODO: 下記にjson取得終了時に行いたい処理を書く
@@ -151,7 +161,8 @@ class SelectRestaurantViewController: UIViewController, UITableViewDelegate, UIT
                     notification in
                     if let userInfo = notification.userInfo as? [String: CLLocation] {
                         if let clloc = userInfo["location"] {
-                            self.searchRestaurant(lat: clloc.coordinate.latitude , lon: clloc.coordinate.longitude)
+                            let query = self.searchField.text
+                            self.searchRestaurant(lat: clloc.coordinate.latitude , lon: clloc.coordinate.longitude, query: query)
                         }
                     }
                 }
