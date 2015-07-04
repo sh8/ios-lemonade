@@ -99,12 +99,12 @@ class AuthenticateViewController: UIViewController, UITextFieldDelegate {
                 let name: String = self.account.username
                 let email: String = ""
                 let uid = self.account?.valueForKey("properties")?.objectForKey("user_id") as! String
-                params = ["user": ["screen_name": name, "email": email, "uid": uid, "sns_type": sns]]
+                params = ["user": ["name": name, "screen_name": name, "email": email, "uid": uid, "sns_type": sns]]
             case self.FACEBOOK:
                 let name = self.account.username
                 let email: String = self.account?.valueForKey("properties")?.objectForKey("ACUIDisplayUsername") as! String
                 let uid = self.account?.valueForKey("properties")?.objectForKey("uid") as! Int
-                params = ["user": ["screen_name": name, "email": email, "uid": uid, "sns_type": sns]]
+                params = ["user": ["name": name, "screen_name": name, "email": email, "uid": uid, "sns_type": sns]]
             default:
                 break
             }
