@@ -20,11 +20,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var viewController: UIViewController
         
         //表示するビューコントローラーを指定
-//        if let token = NSUserDefaults.standardUserDefaults().objectForKey("ACCESS_TOKEN") as? String {
-//            viewController = storyboard.instantiateViewControllerWithIdentifier("searchViewController") as! SearchViewController
-//        } else {
+        if let token = NSUserDefaults.standardUserDefaults().objectForKey("ACCESS_TOKEN") as? String {
+            viewController = storyboard.instantiateViewControllerWithIdentifier("tabBarController") as! UITabBarController
+        } else {
             viewController = storyboard.instantiateViewControllerWithIdentifier("authenticateViewController") as! AuthenticateViewController
-//        }
+        }
         
         window?.rootViewController = viewController
         
