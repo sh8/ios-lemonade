@@ -17,6 +17,7 @@ public class API {
     static let APILoadStartNotification = "APILoadStartNotification"
     static let APILoadCompleteNotification = "APILoadCompleteNotification"
     static let APIUploadCompleteNotification = "APIUploadCompleteNotification"
+    static let accessToken: String? = NSUserDefaults.standardUserDefaults().objectForKey("ACCESS_TOKEN") as? String
     
     // パラメタなしのイニシャライザ
     private init(){}
@@ -25,7 +26,7 @@ public class API {
     class func request(method: Alamofire.Method, url: String, params: [String: AnyObject], completion: (NSURLRequest, NSHTTPURLResponse?, JSON, NSError?) -> Void) -> Void {
         var request_url = api_url + url
         
-        Alamofire.request(method, request_url, parameters: params).responseSwiftyJSON({
+        manager.request(method, request_url, parameters: params).responseSwiftyJSON({
             (request, response, json, error) -> Void in
                 completion(request, response, json, error)
                 NSNotificationCenter.defaultCenter().postNotificationName(self.APILoadCompleteNotification, object: nil)
@@ -36,13 +37,26 @@ public class API {
     class func upload(url: String, params: [String: String], data: NSData, completion: (NSURLRequest, NSHTTPURLResponse?, JSON, NSError?) -> Void) -> Void {
         var request_url = api_url + url
         let urlRequest = urlRequestWithComponents(request_url, parameters: params, imageData: data)
-        Alamofire.upload(urlRequest.0, urlRequest.1).responseSwiftyJSON({
+        manager.upload(urlRequest.0, data: urlRequest.1).responseSwiftyJSON({
             (request, response, json, error) -> Void in
             completion(request, response, json, error)
             NSNotificationCenter.defaultCenter().postNotificationName(self.APIUploadCompleteNotification, object: nil)
             }
         )
     }
+    
+    // MARK - アプリケーションロジック
+    
+    // AlamofireではなくManagerを使って送信するようにする.
+    public static let manager: Manager = {
+        var defaultHeaders = Manager.defaultHTTPHeaders ?? [:]
+        defaultHeaders["X-Access-Token"] = API.accessToken!
+        
+        let configuration: NSURLSessionConfiguration = NSURLSessionConfiguration.defaultSessionConfiguration()
+        configuration.HTTPAdditionalHeaders = defaultHeaders
+        
+        return Manager(configuration: configuration)
+    }()
     
     // this function creates the required URLRequestConvertible and NSData we need to use Alamofire.upload
     class func urlRequestWithComponents(urlString:String, parameters:[String: String], imageData:NSData) -> (URLRequestConvertible, NSData) {
@@ -54,8 +68,6 @@ public class API {
         let boundaryConstant = "NET-POST-boundary-\(arc4random())-\(arc4random())"
         let contentType = "multipart/form-data;boundary="+boundaryConstant
         mutableURLRequest.setValue(contentType, forHTTPHeaderField: "Content-Type")
-        
-        
         
         // create upload data to send
         let uploadData = NSMutableData()
@@ -72,8 +84,6 @@ public class API {
             uploadData.appendData("Content-Disposition: form-data; name=\"\(key)\"\r\n\r\n\(value)".dataUsingEncoding(NSUTF8StringEncoding)!)
         }
         uploadData.appendData("\r\n--\(boundaryConstant)--\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
-        
-        
         
         // return URLRequestConvertible and NSData
         return (Alamofire.ParameterEncoding.URL.encode(mutableURLRequest, parameters: nil).0, uploadData)
