@@ -8,8 +8,9 @@
 
 import UIKit
 import Accounts
+import TSMessages
 
-class AuthenticateViewController: UIViewController {
+class AuthenticateViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var emailField: UITextField!
@@ -24,6 +25,9 @@ class AuthenticateViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.passwordField.delegate = self
+        self.emailField.delegate = self
+        self.screenNameField.delegate = self
         nsnc.addObserverForName(self.LOGIN_COMPLETED, object: nil, queue: nil, usingBlock: {
             (notification) in
             self.performSegueWithIdentifier("PushToTabMenu", sender: nil)
@@ -35,10 +39,7 @@ class AuthenticateViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func loginButtonTapped(sender: UIButton) {
-        signUp()
-    }
-
+    // アカウントがないときの処理を加える
     @IBAction func facebookButtonTapped(sender: UIButton) {
         var facebookAccountType: ACAccountType = self.accountStore.accountTypeWithAccountTypeIdentifier(ACAccountTypeIdentifierFacebook)
         let env = NSProcessInfo.processInfo().environment
@@ -61,7 +62,8 @@ class AuthenticateViewController: UIViewController {
             }
         })
     }
-    
+   
+    // アカウントが無いときの処理を加える
     @IBAction func twitterButtonTapped(sender: UIButton) {
         let twitterAccountType: ACAccountType = self.accountStore.accountTypeWithAccountTypeIdentifier(ACAccountTypeIdentifierTwitter)
         self.accountStore.requestAccessToAccountsWithType(twitterAccountType, options: nil, completion:{
@@ -118,7 +120,6 @@ class AuthenticateViewController: UIViewController {
                 self.defaults.setObject(json["access_token"].string, forKey: "ACCESS_TOKEN")
                 self.defaults.synchronize()
                 self.nsnc.postNotificationName(self.LOGIN_COMPLETED, object: nil)
-                println(self.defaults.objectForKey("ACCESS_TOKEN"))
             }
         })
     }
@@ -144,6 +145,72 @@ class AuthenticateViewController: UIViewController {
         
         // 表示する
         self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    func validationAlertByTile(title: String) {
+        TSMessage.showNotificationInViewController(self, title: title, subtitle: nil, type: TSMessageNotificationType.Error)
+    }
+    
+    func isValidEmail() -> Bool {
+        let emailRegEx = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$"
+        
+        let email = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return email.evaluateWithObject(self.emailField.text)
+    }
+    
+    func isValidScreenName() -> Bool {
+        let screenNameRegEx = "^[a-zA-Z0-9]+$"
+        // TODO: - 同じユーザ名がいた時の処理を加える
+        let screenName = NSPredicate(format:"SELF MATCHES %@", screenNameRegEx)
+        return screenName.evaluateWithObject(self.screenNameField.text)
+    }
+    
+    func isValidPassword() -> Bool {
+        let passwordRegEx = "^[a-zA-Z0-9]+$"
+
+        let password = NSPredicate(format:"SELF MATCHES %@", passwordRegEx)
+        return password.evaluateWithObject(self.passwordField.text)
+    }
+    
+    func isValidPasswordNumber() -> Bool {
+        let minumumNum = 6
+        let maximumNum = 16
+        let size = count(self.passwordField.text)       
+        return size > minumumNum && size < maximumNum
+    }
+    
+    // MARK: - UITextFieldDelegate
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        return true
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        
+        if textField === emailField {
+            screenNameField.becomeFirstResponder()
+            if !isValidEmail() {
+                validationAlertByTile("メールアドレスが不正です")
+            }
+        } else if textField === screenNameField {
+            passwordField.becomeFirstResponder()
+            if !isValidScreenName() {
+                validationAlertByTile("アカウント名は英数字で入力してください")
+            }
+        } else {
+            if !isValidPassword() {
+                validationAlertByTile("パスワードは英数字で入力してください")
+            }
+            
+            if !isValidPasswordNumber() {
+                validationAlertByTile("パスワードは8文字以上16文字以内です")
+            }
+            
+            if isValidEmail() && isValidScreenName() && isValidPassword() && isValidPasswordNumber() {
+                signUp()
+            }
+        }
+        
+        return true
     }
     
     /*
