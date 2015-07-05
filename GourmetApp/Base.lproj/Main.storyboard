@@ -8,7 +8,6 @@
         <!--ホーム-->
         <scene sceneID="zGh-R1-4w3">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="j2A-At-jAp" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="GPB-j9-Beu" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="ホーム" image="tabbar-home" id="HKC-CS-tuJ"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="jrQ-q0-QH5">
@@ -19,6 +18,7 @@
                         <segue destination="N52-yW-WJA" kind="relationship" relationship="rootViewController" id="xuX-RZ-G04"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="j2A-At-jAp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-114" y="-1897"/>
         </scene>
@@ -558,7 +558,7 @@
                                 </constraints>
                                 <color key="tintColor" red="0.22602484424797742" green="0.37352998915933389" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
-                                    <navigationItem title="Title" id="3GW-IU-6kk">
+                                    <navigationItem title="シェア" id="3GW-IU-6kk">
                                         <barButtonItem key="leftBarButtonItem" systemItem="stop" id="sDe-Lv-oc4">
                                             <connections>
                                                 <action selector="backButtonTapped:" destination="O0H-9N-yd2" id="tXi-3p-pBy"/>
