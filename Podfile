@@ -12,6 +12,8 @@ pod 'Alamofire-SwiftyJSON', :git => "https://github.com/SwiftyJSON/Alamofire-Swi
 
 pod 'SDWebImage'
 
+pod 'TSMessages', :git => 'https://github.com/KrauseFx/TSMessages.git'
+
 target 'GourmetApp' do
 end
 
