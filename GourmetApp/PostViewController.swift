@@ -8,9 +8,8 @@
 
 import UIKit
 
-class PostViewController: UIViewController, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class PostViewController: UIViewController, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIViewControllerTransitioningDelegate {
 
-    @IBOutlet weak var caption: UITextView!
     @IBOutlet weak var selectRestaurantButton: UIButton!
     @IBOutlet weak var restaurantName: UILabel!
     @IBOutlet weak var addPhotoButton: UIButton!
@@ -19,12 +18,13 @@ class PostViewController: UIViewController, UITextViewDelegate, UIImagePickerCon
     var restaurant: Restaurant? = Restaurant()
     var image: UIImage? = nil
     let ipc = UIImagePickerController()
+    let kAnimator = Animator()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        caption.delegate = self
         ipc.delegate = self
         ipc.allowsEditing = true
+        self.transitioningDelegate = self
         
         partsLayout()
     }
@@ -37,10 +37,6 @@ class PostViewController: UIViewController, UITextViewDelegate, UIImagePickerCon
     // MARK: - IBAction
     @IBAction func selectRestaurantButtonTapped(sender: UIButton) {
         performSegueWithIdentifier("modalSelectRestaurant", sender: nil)
-    }
-    
-    @IBAction func onTapped(sender: AnyObject) {
-        caption.resignFirstResponder()
     }
     
     @IBAction func addPhotoTapped(sender: UIButton) {
@@ -86,13 +82,16 @@ class PostViewController: UIViewController, UITextViewDelegate, UIImagePickerCon
     }
     
     @IBAction func submitButtonTapped(sender: UIButton) {
-        println("submitButtonTapped")
         let imageData = UIImagePNGRepresentation(image)
         API.upload("posts/create", params: ["id": "\(restaurant!.id!)", "user_id": "0", "name": "shun"], data: imageData, completion: {
             (request, response, json, error) -> Void in
         })
     }
 
+    @IBAction func backButtonTapped(sender: UIBarButtonItem) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     // MARK: - UIImagePickerControllerDelegate
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         ipc.dismissViewControllerAnimated(true, completion: nil)
@@ -110,23 +109,22 @@ class PostViewController: UIViewController, UITextViewDelegate, UIImagePickerCon
 
     // MARK: - UIPartsLayout
     func partsLayout(){
-        caption.layer.borderWidth = 1
-        caption.layer.borderColor = UIColor.blackColor().CGColor
-        selectRestaurantButton.layer.borderWidth = 1
-        selectRestaurantButton.layer.borderColor = UIColor.blackColor().CGColor
         submitButton.layer.borderWidth = 1
         submitButton.layer.borderColor = UIColor.blueColor().CGColor
         submitButton.layer.cornerRadius = 10
     }
     
-    override func viewDidLayoutSubviews() {
-        let image: CGRect = CGRectMake(addPhotoButton.frame.origin.x, addPhotoButton.frame.origin.y, caption.layer.frame.size.width - addPhotoButton.frame.origin.x, view.layer.frame.height)
-        let path = UIBezierPath(rect: image)
-        caption.textContainer.exclusionPaths = [path]
-        caption.addSubview(addPhotoButton)
-        self.view.layoutIfNeeded()
+    // MARK: - UIViewControllerTransitioningDelegate
+    func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        kAnimator.presenting = true
+        return kAnimator
     }
-
+    
+    func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        kAnimator.presenting = false
+        return kAnimator
+    }
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
