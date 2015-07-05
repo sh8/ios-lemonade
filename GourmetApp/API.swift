@@ -49,6 +49,7 @@ public class API {
     
     // AlamofireではなくManagerを使って送信するようにする.
     public static let manager: Manager = {
+
         var defaultHeaders = Manager.defaultHTTPHeaders ?? [:]
         defaultHeaders["X-Access-Token"] = API.accessToken!
         
