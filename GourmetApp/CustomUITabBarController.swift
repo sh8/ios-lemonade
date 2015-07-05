@@ -9,7 +9,7 @@
 import UIKit
 
 class CustomUITabBarController: UITabBarController, UITabBarControllerDelegate {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.delegate = self
@@ -22,7 +22,6 @@ class CustomUITabBarController: UITabBarController, UITabBarControllerDelegate {
     }
     
     func tabBarController(tabBarController: UITabBarController, shouldSelectViewController viewController: UIViewController) -> Bool {
-        println(viewController.restorationIdentifier)
         if viewController.restorationIdentifier == "PostViewNavigation" {
             if let currentVC = self.selectedViewController {
                 //表示させるモーダル
