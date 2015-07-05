@@ -24,6 +24,7 @@
 		24BCC08C1B3978C300E9A79C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24BCC08A1B3978C300E9A79C /* LaunchScreen.xib */; };
 		24BCC0981B3978C300E9A79C /* GourmetAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BCC0971B3978C300E9A79C /* GourmetAppTests.swift */; };
 		24E55C001B48D7510049C39D /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E55BFF1B48D7510049C39D /* Animator.swift */; };
+		24E55C021B48F3E30049C39D /* TimeLineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E55C011B48F3E30049C39D /* TimeLineViewController.swift */; };
 		24EFE20C1B4005BC006098E5 /* AuthenticateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EFE20B1B4005BC006098E5 /* AuthenticateViewController.swift */; };
 		24F83F2D1B3A7F1C004E9C7E /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F83F2C1B3A7F1C004E9C7E /* LocationService.swift */; };
 		24F83F2F1B3A9356004E9C7E /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F83F2E1B3A9356004E9C7E /* PostViewController.swift */; };
@@ -66,6 +67,7 @@
 		24BCC0961B3978C300E9A79C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		24BCC0971B3978C300E9A79C /* GourmetAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GourmetAppTests.swift; sourceTree = "<group>"; };
 		24E55BFF1B48D7510049C39D /* Animator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
+		24E55C011B48F3E30049C39D /* TimeLineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeLineViewController.swift; sourceTree = "<group>"; };
 		24EFE2091B3DBD85006098E5 /* Pods_GourmetApp.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_GourmetApp.framework; path = "Pods/../build/Debug-iphoneos/Pods_GourmetApp.framework"; sourceTree = "<group>"; };
 		24EFE20B1B4005BC006098E5 /* AuthenticateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticateViewController.swift; sourceTree = "<group>"; };
 		24EFE20E1B417EA6006098E5 /* GourmetApp-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GourmetApp-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 				244354DD1B3ABA1700EDAF03 /* SelectRestaurantViewController.swift */,
 				244354F41B3BC5E000EDAF03 /* MypageViewController.swift */,
 				24EFE20B1B4005BC006098E5 /* AuthenticateViewController.swift */,
+				24E55C011B48F3E30049C39D /* TimeLineViewController.swift */,
 				248E80B01B48C83F00E3E0C2 /* CustomUITabBarController.swift */,
 			);
 			name = ViewControllers;
@@ -383,6 +386,7 @@
 				24F83F2D1B3A7F1C004E9C7E /* LocationService.swift in Sources */,
 				248E80AF1B4832B700E3E0C2 /* User.swift in Sources */,
 				2432E4F21B3C42960042579E /* Post.swift in Sources */,
+				24E55C021B48F3E30049C39D /* TimeLineViewController.swift in Sources */,
 				2432E5001B3D54220042579E /* MypageCollectionReusableView.swift in Sources */,
 				244354F51B3BC5E000EDAF03 /* MypageViewController.swift in Sources */,
 				244354F31B3BC5CD00EDAF03 /* MypageCollectionViewCell.swift in Sources */,
