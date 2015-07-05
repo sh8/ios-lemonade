@@ -12,6 +12,7 @@ class MypageViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     @IBOutlet weak var collectionView: UICollectionView!
     var posts: [Post] = [Post]()
+    var user: User = User()
     
     let nsnc = NSNotificationCenter.defaultCenter()
 
@@ -42,7 +43,10 @@ class MypageViewController: UIViewController, UICollectionViewDelegate, UICollec
         API.request(.GET, url: "posts", params: ["user_id": "0"],
             completion:{
                 (request, response, json, error) -> Void in
-                for (key, value) in json {
+                self.user.screenoName = json["user"]["screen_name"].string
+                self.user.name = json["user"]["name"].string
+                self.user.email = json["user"]["email"].string
+                for (key, value) in json["posts"] {
                     var post = Post()
                     post.photoName = value["photo"]["url"].string
                     post.restaurantId = value["restaurant_id"].int
@@ -74,6 +78,7 @@ class MypageViewController: UIViewController, UICollectionViewDelegate, UICollec
         // ユーザ情報ヘッダの場合のみ処理する
         if kind == UICollectionElementKindSectionHeader {
             let header = collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader, withReuseIdentifier: "UserInfoHeader", forIndexPath: indexPath) as! MypageCollectionReusableView
+            header.screenName.text = self.user.screenoName
             return header
         }
         return UICollectionReusableView()
