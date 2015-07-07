@@ -23,7 +23,7 @@ public class API {
     private init(){}
     
     // AlamofireをAPIクラスのrequestメソッドでラップした.
-    class func request(method: Alamofire.Method, url: String, params: [String: AnyObject], completion: (NSURLRequest, NSHTTPURLResponse?, JSON, NSError?) -> Void) -> Void {
+    class func request(method: Alamofire.Method, url: String, params: [String: AnyObject]?, completion: (NSURLRequest, NSHTTPURLResponse?, JSON, NSError?) -> Void) -> Void {
         var request_url = api_url + url
         
         manager.request(method, request_url, parameters: params).responseSwiftyJSON({
@@ -34,7 +34,7 @@ public class API {
         )
     }
     
-    class func upload(url: String, params: [String: String], data: NSData, completion: (NSURLRequest, NSHTTPURLResponse?, JSON, NSError?) -> Void) -> Void {
+    class func upload(url: String, params: [String: String]?, data: NSData, completion: (NSURLRequest, NSHTTPURLResponse?, JSON, NSError?) -> Void) -> Void {
         var request_url = api_url + url
         let urlRequest = urlRequestWithComponents(request_url, parameters: params, imageData: data)
         manager.upload(urlRequest.0, data: urlRequest.1).responseSwiftyJSON({
@@ -51,7 +51,10 @@ public class API {
     public static let manager: Manager = {
 
         var defaultHeaders = Manager.defaultHTTPHeaders ?? [:]
-        defaultHeaders["X-Access-Token"] = API.accessToken!
+        
+        if let token = API.accessToken {
+            defaultHeaders["X-Access-Token"] = token
+        }
         
         let configuration: NSURLSessionConfiguration = NSURLSessionConfiguration.defaultSessionConfiguration()
         configuration.HTTPAdditionalHeaders = defaultHeaders
@@ -60,7 +63,7 @@ public class API {
     }()
     
     // this function creates the required URLRequestConvertible and NSData we need to use Alamofire.upload
-    class func urlRequestWithComponents(urlString:String, parameters:[String: String], imageData:NSData) -> (URLRequestConvertible, NSData) {
+    class func urlRequestWithComponents(urlString:String, parameters:[String: String]?, imageData:NSData) -> (URLRequestConvertible, NSData) {
         
         // create url request to send
         var mutableURLRequest = NSMutableURLRequest(URL: NSURL(string: urlString)!)
@@ -80,9 +83,11 @@ public class API {
         uploadData.appendData(imageData)
         
         // add parameters
-        for (key, value) in parameters {
-            uploadData.appendData("\r\n--\(boundaryConstant)\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
-            uploadData.appendData("Content-Disposition: form-data; name=\"\(key)\"\r\n\r\n\(value)".dataUsingEncoding(NSUTF8StringEncoding)!)
+        if let params = parameters {
+            for (key, value) in params {
+                uploadData.appendData("\r\n--\(boundaryConstant)\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
+                uploadData.appendData("Content-Disposition: form-data; name=\"\(key)\"\r\n\r\n\(value)".dataUsingEncoding(NSUTF8StringEncoding)!)
+            }
         }
         uploadData.appendData("\r\n--\(boundaryConstant)--\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
         
