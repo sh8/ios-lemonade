@@ -49,7 +49,7 @@ class MypageViewController: UIViewController, UICollectionViewDelegate, UICollec
                 for (key, value) in json["posts"] {
                     var post = Post()
                     post.photoName = value["photo"]["url"].string
-                    post.restaurantId = value["restaurant_id"].int
+                    post.restaurant.id = value["restaurant_id"].int
                     self.posts.append(post)
                 }
             }
