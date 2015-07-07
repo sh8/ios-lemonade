@@ -10,6 +10,7 @@ import Foundation
 
 public class User: Printable {
     
+    public var id: Int? = nil
     public var name: String? = nil
     public var screenoName: String? = nil
     public var email: String? = nil
