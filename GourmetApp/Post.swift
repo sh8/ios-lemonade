@@ -11,11 +11,12 @@ import Foundation
 public class Post: Printable {
 
     public var photoName: String? = nil
-    public var restaurantId: Int? = nil
+    public var user: User = User()
+    public var restaurant: Restaurant  = Restaurant()
     
     public var description: String {
         get {
-            var str: String = "\(restaurantId)"
+            var str: String = "\(user)\n"
             return str
         }
     }
