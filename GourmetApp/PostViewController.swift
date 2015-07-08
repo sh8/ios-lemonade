@@ -23,25 +23,15 @@ class PostViewController: UIViewController, UITextViewDelegate, UIImagePickerCon
     let kAnimator = Animator()
     let nsnc = NSNotificationCenter.defaultCenter()
     let CompleteSendingImage = "CompleteSendingImage"
-    var destinationController: CustomUITabBarController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         ipc.delegate = self
         ipc.allowsEditing = true
         self.transitioningDelegate = self
-        nsnc.addObserverForName(self.CompleteSendingImage, object: nil, queue: nil, usingBlock: {
-            (notification) in
-            if let presentingViewController = self.presentingViewController {
-                self.destinationController = self.presentingViewController as? CustomUITabBarController
-            }
-            var timeLine = self.destinationController!.viewControllers?[0] as! UINavigationController
-            self.dismissViewControllerAnimated(true, completion: nil)
-            TSMessage.showNotificationInViewController(timeLine, title: "投稿が完了しました", subtitle: nil, type: TSMessageNotificationType.Success)
-        })
         partsLayout()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -95,16 +85,23 @@ class PostViewController: UIViewController, UITextViewDelegate, UIImagePickerCon
     }
     
     @IBAction func submitButtonTapped(sender: UIButton) {
-        let imageData = UIImagePNGRepresentation(image)
         backButton.enabled = false
-        API.upload("posts/create", params: ["restaurant_id": "\(restaurant!.id!)", "user_id": "0", "name": "shun"], data: imageData, completion: {
-            (request, response, json, error) -> Void in
-            self.nsnc.postNotificationName(self.CompleteSendingImage, object: nil)
-        })
+        self.uploadImage()
     }
 
     @IBAction func backButtonTapped(sender: UIBarButtonItem) {
         dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    // アプリケーションロジック
+    func uploadImage() {
+        let imageData = UIImagePNGRepresentation(image)
+        API.upload("posts/create", params: ["restaurant_id": "\(restaurant!.id!)", "user_id": "0", "name": "shun"], data: imageData, completion: {
+            (request, response, json, error) -> Void in
+            let alertController = self.presentingViewController
+            TSMessage.showNotificationInViewController(alertController, title: "投稿が完了しました", subtitle: nil, type: TSMessageNotificationType.Success)
+            self.dismissViewControllerAnimated(true, completion: nil)
+        })
     }
     
     // MARK: - UIImagePickerControllerDelegate
