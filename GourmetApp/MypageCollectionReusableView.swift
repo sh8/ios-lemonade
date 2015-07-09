@@ -13,5 +13,6 @@ class MypageCollectionReusableView: UICollectionReusableView {
     @IBOutlet weak var postsNumber: UILabel!
     @IBOutlet weak var followedNumber: UILabel!
     @IBOutlet weak var followNumber: UILabel!
+    @IBOutlet weak var profilePhoto: UIImageView!
     @IBOutlet weak var editProfileButton: UIButton!
 }
