@@ -16,6 +16,7 @@ public class User: Printable {
     public var email: String? = nil
     public var sex: Int? = nil
     public var birthday: Int? = nil
+    public var profilePhoto: String? = nil
     
     public var description: String {
         get {
