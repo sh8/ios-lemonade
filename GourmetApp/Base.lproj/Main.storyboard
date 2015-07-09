@@ -45,39 +45,61 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Xpg-GT-JrO">
-                                                    <rect key="frame" x="0.0" y="74" width="600" height="100"/>
+                                                    <rect key="frame" x="0.0" y="69" width="600" height="100"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="100" id="IWQ-nW-K4f"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="screenName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eSi-S6-g4R" userLabel="ユーザ名">
-                                                    <rect key="frame" x="75" y="17" width="487" height="21"/>
+                                                    <rect key="frame" x="75" y="17" width="374" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="restaurantName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6lX-Wc-GZH" userLabel="店舗名">
-                                                    <rect key="frame" x="75" y="40" width="487" height="21"/>
+                                                    <rect key="frame" x="75" y="40" width="374" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kwx-Je-ocQ">
+                                                    <rect key="frame" x="533" y="14" width="47" height="44"/>
+                                                    <state key="normal" image="star-off">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="j6O-Xn-J4k">
+                                                    <rect key="frame" x="8" y="3" width="58" height="58"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="58" id="1Rx-9v-4Ix"/>
+                                                        <constraint firstAttribute="width" constant="58" id="AcT-qJ-9ul"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="6lX-Wc-GZH" secondAttribute="trailing" constant="30" id="AL9-yA-jvf"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="6lX-Wc-GZH" secondAttribute="trailing" constant="143" id="AL9-yA-jvf"/>
+                                                <constraint firstItem="Xpg-GT-JrO" firstAttribute="top" secondItem="j6O-Xn-J4k" secondAttribute="bottom" constant="8" id="Bhe-tQ-pMy"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="Xpg-GT-JrO" secondAttribute="trailing" constant="-8" id="CEV-Xw-kCI"/>
+                                                <constraint firstItem="6lX-Wc-GZH" firstAttribute="leading" secondItem="j6O-Xn-J4k" secondAttribute="trailing" constant="9" id="D03-4m-NaX"/>
+                                                <constraint firstItem="Kwx-Je-ocQ" firstAttribute="leading" secondItem="6lX-Wc-GZH" secondAttribute="trailing" constant="84" id="GTz-KV-Seo"/>
+                                                <constraint firstItem="j6O-Xn-J4k" firstAttribute="leading" secondItem="d1k-a7-UV2" secondAttribute="leadingMargin" id="Lp4-JM-NoG"/>
+                                                <constraint firstItem="j6O-Xn-J4k" firstAttribute="top" secondItem="d1k-a7-UV2" secondAttribute="topMargin" constant="-5" id="T9V-jk-He6"/>
                                                 <constraint firstItem="eSi-S6-g4R" firstAttribute="top" secondItem="d1k-a7-UV2" secondAttribute="topMargin" constant="9" id="TCJ-w5-zk4"/>
                                                 <constraint firstItem="6lX-Wc-GZH" firstAttribute="top" secondItem="eSi-S6-g4R" secondAttribute="bottom" constant="2" id="WlE-Ww-nQj"/>
                                                 <constraint firstItem="Xpg-GT-JrO" firstAttribute="leading" secondItem="d1k-a7-UV2" secondAttribute="leadingMargin" constant="-8" id="bbj-KE-0hc"/>
+                                                <constraint firstItem="Kwx-Je-ocQ" firstAttribute="top" secondItem="d1k-a7-UV2" secondAttribute="topMargin" constant="6" id="d3K-dL-lZf"/>
                                                 <constraint firstItem="6lX-Wc-GZH" firstAttribute="leading" secondItem="d1k-a7-UV2" secondAttribute="leadingMargin" constant="67" id="f0U-gz-4hv"/>
-                                                <constraint firstItem="Xpg-GT-JrO" firstAttribute="top" secondItem="6lX-Wc-GZH" secondAttribute="bottom" constant="13" id="kfI-xZ-3fQ"/>
+                                                <constraint firstItem="Xpg-GT-JrO" firstAttribute="top" secondItem="Kwx-Je-ocQ" secondAttribute="bottom" constant="11" id="fvY-BP-buc"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Kwx-Je-ocQ" secondAttribute="trailing" constant="12" id="jrg-C0-egw"/>
+                                                <constraint firstItem="Xpg-GT-JrO" firstAttribute="top" secondItem="6lX-Wc-GZH" secondAttribute="bottom" constant="8" id="kfI-xZ-3fQ"/>
                                                 <constraint firstItem="eSi-S6-g4R" firstAttribute="leading" secondItem="d1k-a7-UV2" secondAttribute="leadingMargin" constant="67" id="qxP-Bi-0dD"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="eSi-S6-g4R" secondAttribute="trailing" constant="30" id="wFf-X9-hZ6"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="eSi-S6-g4R" secondAttribute="trailing" constant="143" id="wFf-X9-hZ6"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="imageHeight" destination="IWQ-nW-K4f" id="pDD-Mc-3xg"/>
                                             <outlet property="photo" destination="Xpg-GT-JrO" id="ehV-Mx-yDA"/>
+                                            <outlet property="profilePhoto" destination="j6O-Xn-J4k" id="xpz-Yl-p6Y"/>
                                             <outlet property="restaurantName" destination="6lX-Wc-GZH" id="pDa-aH-tM4"/>
                                             <outlet property="screenName" destination="eSi-S6-g4R" id="XJI-zd-2fG"/>
                                         </connections>
@@ -106,7 +128,7 @@
         <scene sceneID="TU0-qo-YQw">
             <objects>
                 <navigationController id="3zW-zY-BN4" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" tag="3" title="マイページ" image="tabbar-mypage" id="I5l-Oy-QeX"/>
+                    <tabBarItem key="tabBarItem" tag="4" title="マイページ" image="tabbar-mypage" id="I5l-Oy-QeX"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="3ES-tP-xgh">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -272,6 +294,7 @@
         <scene sceneID="9pG-0q-pIq">
             <objects>
                 <tabBarController storyboardIdentifier="tabBarController" id="CoM-4W-LjZ" customClass="CustomUITabBarController" customModule="GourmetApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="75R-C5-wBC"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="fyo-we-zds">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
@@ -282,6 +305,7 @@
                         <segue destination="GPB-j9-Beu" kind="relationship" relationship="viewControllers" id="blt-DL-zDM"/>
                         <segue destination="2R7-Vp-eYS" kind="relationship" relationship="viewControllers" id="I0X-Jg-ZR3"/>
                         <segue destination="gS0-DQ-lBd" kind="relationship" relationship="viewControllers" id="jcQ-1o-o8Y"/>
+                        <segue destination="aWn-A5-Bb8" kind="relationship" relationship="viewControllers" id="eKn-Fk-7lj"/>
                         <segue destination="3zW-zY-BN4" kind="relationship" relationship="viewControllers" id="sAZ-sB-Yke"/>
                     </connections>
                 </tabBarController>
@@ -306,11 +330,66 @@
             </objects>
             <point key="canvasLocation" x="-114" y="188"/>
         </scene>
+        <!--Item 2-->
+        <scene sceneID="eGg-5E-sso">
+            <objects>
+                <viewController id="Hsy-Ip-urI" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="SRi-vA-76p"/>
+                        <viewControllerLayoutGuide type="bottom" id="eQE-s1-t0V"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="TxD-91-7Bl">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 2" id="JGG-77-rI8"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AJT-Gx-Yc5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-131" y="839"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="td0-uO-ops">
+            <objects>
+                <navigationController id="aWn-A5-Bb8" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" tag="3" systemItem="mostRecent" id="Xfw-XJ-9td"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="kFF-Dj-AYL">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="D7L-Yo-i21" kind="relationship" relationship="rootViewController" id="E4J-W1-01c"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wa2-wF-W2a" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-131" y="1574"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="8qd-Ps-c9M">
+            <objects>
+                <viewController id="D7L-Yo-i21" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="aSl-2H-PCR"/>
+                        <viewControllerLayoutGuide type="bottom" id="Gnr-fw-9EH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9rI-tW-ei8">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="9jo-DK-nmI"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z9s-NC-KAR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="558" y="1574"/>
+        </scene>
         <!--投稿-->
         <scene sceneID="p5P-0Y-A7r">
             <objects>
                 <navigationController restorationIdentifier="PostViewNavigation" id="gS0-DQ-lBd" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" tag="2" title="投稿" image="tabbar-photo" id="PgL-HE-12Z"/>
+                    <tabBarItem key="tabBarItem" tag="2" title="投稿" id="PgL-HE-12Z"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="3ei-5p-SkX">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -468,6 +547,7 @@
                                         <constraint firstItem="oq8-oy-bc9" firstAttribute="top" secondItem="zdx-tx-Eko" secondAttribute="bottom" id="YBG-wU-Vhd"/>
                                         <constraint firstItem="zpH-j7-Z8g" firstAttribute="top" secondItem="jfR-Fp-Q46" secondAttribute="topMargin" constant="4" id="YYh-gh-HlB"/>
                                         <constraint firstItem="p4m-9u-Eqm" firstAttribute="top" secondItem="zpH-j7-Z8g" secondAttribute="bottom" constant="1" id="aae-uZ-Y3U"/>
+                                        <constraint firstItem="p4m-9u-Eqm" firstAttribute="top" secondItem="jfR-Fp-Q46" secondAttribute="topMargin" constant="26" id="bWq-Xz-qw5"/>
                                         <constraint firstItem="jaN-bY-Q2Q" firstAttribute="top" secondItem="ojo-yc-Pr8" secondAttribute="bottom" constant="8" id="hBg-LI-m8q"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="jaN-bY-Q2Q" secondAttribute="bottom" constant="1" id="oDl-LX-lQv"/>
                                         <constraint firstItem="zdx-tx-Eko" firstAttribute="leading" secondItem="KHH-LQ-WEF" secondAttribute="trailing" constant="55" id="r8h-63-dma"/>
@@ -475,11 +555,17 @@
                                         <constraint firstItem="ojo-yc-Pr8" firstAttribute="leading" secondItem="jfR-Fp-Q46" secondAttribute="leadingMargin" constant="7" id="zAt-yC-vFp"/>
                                         <constraint firstItem="SDk-TX-RIT" firstAttribute="top" secondItem="oq8-oy-bc9" secondAttribute="bottom" constant="8" id="zTX-Cg-Ad1"/>
                                     </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="K8L-Af-E7R"/>
+                                        </mask>
+                                    </variation>
                                     <connections>
                                         <outlet property="editProfileButton" destination="SDk-TX-RIT" id="x9a-Tc-da5"/>
                                         <outlet property="followNumber" destination="zdx-tx-Eko" id="PeT-Mk-4Ut"/>
                                         <outlet property="followedNumber" destination="KHH-LQ-WEF" id="DV0-2X-RoL"/>
                                         <outlet property="postsNumber" destination="zpH-j7-Z8g" id="vTF-Zf-JW1"/>
+                                        <outlet property="profilePhoto" destination="ojo-yc-Pr8" id="hoZ-R0-2Qs"/>
                                         <outlet property="screenName" destination="jaN-bY-Q2Q" id="zIz-dL-hng"/>
                                     </connections>
                                 </collectionReusableView>
@@ -815,6 +901,7 @@
         <image name="signup-facebook" width="29" height="29"/>
         <image name="signup-top" width="640" height="347"/>
         <image name="signup-twitter" width="843" height="843"/>
+        <image name="star-off" width="40" height="40"/>
         <image name="tabbar-home" width="32" height="32"/>
         <image name="tabbar-mypage" width="25" height="25"/>
         <image name="tabbar-photo" width="30" height="30"/>
