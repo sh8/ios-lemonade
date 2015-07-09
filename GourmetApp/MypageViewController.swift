@@ -13,6 +13,7 @@ class MypageViewController: UIViewController, UICollectionViewDelegate, UICollec
     @IBOutlet weak var collectionView: UICollectionView!
     var posts: [Post] = [Post]()
     var user: User = User()
+    var postsNumber: String? = nil
     
     let nsnc = NSNotificationCenter.defaultCenter()
 
@@ -40,12 +41,14 @@ class MypageViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     // MARK: - アプリケーションロジック
     func getImage() {
-        API.request(.GET, url: "posts", params: ["user_id": "0"],
+        API.request(.GET, url: "posts", params: nil,
             completion:{
                 (request, response, json, error) -> Void in
                 self.user.screenoName = json["user"]["screen_name"].string
                 self.user.name = json["user"]["name"].string
                 self.user.email = json["user"]["email"].string
+                self.user.profilePhoto = json["user"]["profile_photo"]["url"].string
+                self.postsNumber = json["posts_number"].string
                 for (key, value) in json["posts"] {
                     var post = Post()
                     post.photoName = value["photo"]["url"].string
@@ -79,6 +82,10 @@ class MypageViewController: UIViewController, UICollectionViewDelegate, UICollec
         if kind == UICollectionElementKindSectionHeader {
             let header = collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader, withReuseIdentifier: "UserInfoHeader", forIndexPath: indexPath) as! MypageCollectionReusableView
             header.screenName.text = self.user.screenoName
+            header.postsNumber.text = self.postsNumber
+            if let profilePhoto = self.user.profilePhoto {
+                header.profilePhoto.sd_setImageWithURL(NSURL(string: profilePhoto))
+            }
             return header
         }
         return UICollectionReusableView()
