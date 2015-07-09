@@ -43,7 +43,7 @@ class TimeLineViewController: UIViewController, UITableViewDelegate, UITableView
     
     // MARK: - UITableViewDelegate
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 600
+        return 500
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -61,6 +61,7 @@ class TimeLineViewController: UIViewController, UITableViewDelegate, UITableView
                 cell.imageHeight.constant = self.view.frame.width
                 cell.photo.contentMode = UIViewContentMode.ScaleAspectFit
                 cell.photo.sd_setImageWithURL(NSURL(string: self.posts[indexPath.row].photoName!))
+                cell.profilePhoto.sd_setImageWithURL(NSURL(string: self.posts[indexPath.row].user.profilePhoto!))
                 
                 if cell.respondsToSelector("separatorInset") {
                     cell.separatorInset = UIEdgeInsetsZero;
@@ -85,6 +86,7 @@ class TimeLineViewController: UIViewController, UITableViewDelegate, UITableView
                 var post = Post()
                 post.photoName = value["photo"]["url"].string
                 post.user.id = value["user"]["name"].int
+                post.user.profilePhoto = value["user"]["profile_photo"]["url"].string
                 post.user.name = value["user"]["name"].string
                 post.restaurant.id = value["restaurant"]["id"].int
                 post.restaurant.name = value["restaurant"]["name"].string
