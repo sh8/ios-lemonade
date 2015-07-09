@@ -13,7 +13,7 @@ class CustomUITabBarController: UITabBarController, UITabBarControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.delegate = self
-        // Do any additional setup after loading the view.
+        self.appendCenterButton()
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,18 +21,27 @@ class CustomUITabBarController: UITabBarController, UITabBarControllerDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    func tabBarController(tabBarController: UITabBarController, shouldSelectViewController viewController: UIViewController) -> Bool {
-        if viewController.restorationIdentifier == "PostViewNavigation" {
-            if let currentVC = self.selectedViewController {
-                //表示させるモーダル
-                viewController.view.backgroundColor = UIColor.whiteColor()
-                let modalViewController: PostViewController = self.storyboard?.instantiateViewControllerWithIdentifier("PostViewController") as! PostViewController
-                currentVC.presentViewController(modalViewController, animated: true, completion: {
-                    tabBarController.selectedIndex = 0
-                })
-            }
-        }
-        return true
+    func appendCenterButton() {
+        let button: UIButton! = UIButton.buttonWithType(UIButtonType.Custom) as? UIButton
+        let image: UIImage? = UIImage(named:"tabbar-photo")
+        
+        button.setImage(image, forState: UIControlState.Normal)
+        button.frame = CGRectMake(0, 0, 80, 70)
+        button.addTarget(self, action: "onClick:", forControlEvents:.TouchUpInside)
+        button.layer.position = CGPoint(x: self.view.frame.width / 2, y: UIScreen.mainScreen().bounds.size.height - button.frame.height + 40)
+        button.layer.borderWidth = 0
+        
+        self.view.addSubview(button)
+    }
+    
+    @IBAction func onClick(sender: AnyObject) {
+        var storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+        var mainViewController: UIViewController
+        
+        mainViewController = self.storyboard?.instantiateViewControllerWithIdentifier("PostViewController") as! PostViewController
+        // タブバーを非表示にする
+        mainViewController.hidesBottomBarWhenPushed = true;
+        self.presentViewController(mainViewController, animated: true, completion: nil)
     }
 
     /*
