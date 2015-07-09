@@ -11,6 +11,7 @@ import SDWebImage
 
 class TimeLineTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var profilePhoto: UIImageView!
     @IBOutlet weak var screenName: UILabel!
     @IBOutlet weak var restaurantName: UILabel!
     @IBOutlet weak var photo: UIImageView!
