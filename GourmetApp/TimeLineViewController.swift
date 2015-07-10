@@ -59,6 +59,8 @@ class TimeLineViewController: UIViewController, UITableViewDelegate, UITableView
                 cell.screenName.text = self.posts[indexPath.row].user.name!
                 cell.restaurantName.text = self.posts[indexPath.row].restaurant.name!
                 cell.imageHeight.constant = self.view.frame.width
+                cell.profilePhoto.layer.cornerRadius = 5.0
+                cell.profilePhoto.layer.masksToBounds = true
                 cell.photo.contentMode = UIViewContentMode.ScaleAspectFit
                 cell.photo.sd_setImageWithURL(NSURL(string: self.posts[indexPath.row].photoName!))
                 cell.profilePhoto.sd_setImageWithURL(NSURL(string: self.posts[indexPath.row].user.profilePhoto!))
