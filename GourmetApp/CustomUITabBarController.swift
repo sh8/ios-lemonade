@@ -14,6 +14,9 @@ class CustomUITabBarController: UITabBarController, UITabBarControllerDelegate {
         super.viewDidLoad()
         self.delegate = self
         self.appendCenterButton()
+        UINavigationBar.appearance().barTintColor = UIColor.whiteColor()
+        UINavigationBar.appearance().tintColor = UIColor.grayColor()
+        UINavigationBar.appearance().alpha = 0.9
     }
 
     override func didReceiveMemoryWarning() {
