@@ -86,6 +86,7 @@ class PostViewController: UIViewController, UITextViewDelegate, UIImagePickerCon
     
     @IBAction func submitButtonTapped(sender: UIButton) {
         backButton.enabled = false
+        submitButton.enabled = false
         self.uploadImage()
     }
 
@@ -98,6 +99,7 @@ class PostViewController: UIViewController, UITextViewDelegate, UIImagePickerCon
         let imageData = UIImagePNGRepresentation(image)
         API.upload("posts/create", params: ["restaurant_id": "\(restaurant!.id!)", "user_id": "0", "name": "shun"], data: imageData, completion: {
             (request, response, json, error) -> Void in
+            // TODO: - エラー処理を書く
             let alertController = self.presentingViewController
             TSMessage.showNotificationInViewController(alertController, title: "投稿が完了しました", subtitle: nil, type: TSMessageNotificationType.Success)
             self.dismissViewControllerAnimated(true, completion: nil)
@@ -121,9 +123,9 @@ class PostViewController: UIViewController, UITextViewDelegate, UIImagePickerCon
 
     // MARK: - UIPartsLayout
     func partsLayout(){
-        submitButton.layer.borderWidth = 1
-        submitButton.layer.borderColor = UIColor.blueColor().CGColor
-        submitButton.layer.cornerRadius = 10
+        submitButton.backgroundColor = UIColor.grayColor()
+        submitButton.alpha = 0.9
+        submitButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
     }
     
     // MARK: - UIViewControllerTransitioningDelegate
