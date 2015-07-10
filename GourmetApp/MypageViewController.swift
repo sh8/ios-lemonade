@@ -83,6 +83,8 @@ class MypageViewController: UIViewController, UICollectionViewDelegate, UICollec
             let header = collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader, withReuseIdentifier: "UserInfoHeader", forIndexPath: indexPath) as! MypageCollectionReusableView
             header.screenName.text = self.user.screenoName
             header.postsNumber.text = self.postsNumber
+            header.profilePhoto.layer.cornerRadius = 5.0
+            header.profilePhoto.layer.masksToBounds = true
             if let profilePhoto = self.user.profilePhoto {
                 header.profilePhoto.sd_setImageWithURL(NSURL(string: profilePhoto))
             }
