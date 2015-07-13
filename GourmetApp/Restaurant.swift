@@ -23,6 +23,7 @@ public class Restaurant: Printable {
     public var city: String? = nil
     public var state: String? = nil
     public var cc: String? = nil
+    public var posts = [Post]()
 
     public var description: String {
         get {
