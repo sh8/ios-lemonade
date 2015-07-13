@@ -50,6 +50,11 @@ class TimeLineViewController: UIViewController, UITableViewDelegate, UITableView
         return posts.count
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        performSegueWithIdentifier("PushToRestaurantDetail", sender: self.posts[indexPath.row].restaurant)
+    }
+    
     // MARK: - UITableViewdDataSource
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
@@ -92,20 +97,22 @@ class TimeLineViewController: UIViewController, UITableViewDelegate, UITableView
                 post.user.name = value["user"]["name"].string
                 post.restaurant.id = value["restaurant"]["id"].int
                 post.restaurant.name = value["restaurant"]["name"].string
+                post.restaurant.genre = value["restaurant"]["genre"].string
                 self.posts.append(post)
             }
         })
     }
 
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "PushToRestaurantDetail" {
+            if let nc = segue.destinationViewController as? RestaurantDetailViewController {
+                nc.restaurant = sender as! Restaurant
+            }
+        }
     }
-    */
 
 }
