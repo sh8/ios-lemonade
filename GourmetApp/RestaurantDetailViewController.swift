@@ -15,6 +15,8 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
     @IBOutlet weak var topRightPhoto: UIImageView!
     @IBOutlet weak var topLeftPhotoConstraint: NSLayoutConstraint!
     @IBOutlet weak var topRightPhotoConstraint: NSLayoutConstraint!
+    @IBOutlet weak var topLeftPhotoWidth: NSLayoutConstraint!
+    @IBOutlet weak var topRightPhotoWidth: NSLayoutConstraint!
     @IBOutlet weak var restaurantInfo: UIView!
     @IBOutlet weak var restaurantName: UILabel!
     @IBOutlet weak var genre: UILabel!
@@ -34,17 +36,18 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
         self.genre.text = self.restaurant.genre
         self.address.text = self.restaurant.address
         self.tel.text = self.restaurant.tel
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
         self.getRestaurantDetail()
+        self.partsLayout()
         nsnc.addObserverForName(API.APILoadCompleteNotification, object: nil, queue: nil, usingBlock:{
             (notification) in
-            println(self.firstPhoto)
             if let firstPhoto = self.firstPhoto {
                 self.topLeftPhoto.sd_setImageWithURL(NSURL(string: firstPhoto))
             }
             if let secondPhoto = self.secondPhoto{
-                self.topLeftPhoto.sd_setImageWithURL(NSURL(string: secondPhoto))
+                self.topRightPhoto.sd_setImageWithURL(NSURL(string: secondPhoto))
             }
-            
             self.tableView.reloadData()
             }
         )
@@ -68,7 +71,7 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             if indexPath.row < restaurant.posts.count {
-                let cell = tableView.dequeueReusableCellWithIdentifier("RestaurantDetail") as! TimeLineTableViewCell
+                let cell = tableView.dequeueReusableCellWithIdentifier("RestaurantDetail") as! RestaurantDetailTableViewCell
                 cell.profilePhoto.sd_setImageWithURL(NSURL(string: self.restaurant.posts[indexPath.row].user.profilePhoto!))
                 cell.photo.sd_setImageWithURL(NSURL(string: self.restaurant.posts[indexPath.row].photoName!))
                 cell.screenName.text = self.restaurant.posts[indexPath.row].user.name
@@ -84,14 +87,22 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
         API.request(.GET, url: "restaurants/\(restaurant.id!)", params: nil, completion: {
             (request, response, json, error) -> Void in
             self.firstPhoto = json["firstPhoto"].string
-            self.secondPhoto = json["firstPhoto"].string
-            for (key, value) in json {
+            self.secondPhoto = json["secondPhoto"].string
+            for (key, value) in json["posts"] {
                 var post = Post()
                 post.photoName = value["photo"]["url"].string
                 post.user.name = value["user"]["name"].string
+                post.user.profilePhoto = value["user"]["profile_photo"]["url"].string
                 self.restaurant.posts.append(post)
             }
         })
+    }
+    
+    func partsLayout() {
+        self.topLeftPhotoConstraint.constant = self.view.frame.size.width / 2
+        self.topRightPhotoConstraint.constant = self.view.frame.size.width / 2
+        self.topLeftPhotoWidth.constant = self.view.frame.size.width / 2
+        self.topRightPhotoWidth.constant = self.view.frame.size.width / 2
     }
     
 
