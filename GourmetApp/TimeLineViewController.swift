@@ -97,6 +97,8 @@ class TimeLineViewController: UIViewController, UITableViewDelegate, UITableView
                 post.user.name = value["user"]["name"].string
                 post.restaurant.id = value["restaurant"]["id"].int
                 post.restaurant.name = value["restaurant"]["name"].string
+                post.restaurant.tel = value["restaurant"]["tel"].string
+                post.restaurant.address = value["restaurant"]["address"].string
                 post.restaurant.genre = value["restaurant"]["genre"].string
                 self.posts.append(post)
             }
