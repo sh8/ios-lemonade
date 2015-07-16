@@ -7,12 +7,14 @@
 //
 
 import UIKit
+import SDWebImage
 
 class RestaurantDetailTableViewCell: UITableViewCell {
 
     @IBOutlet weak var profilePhoto: UIImageView!
     @IBOutlet weak var screenName: UILabel!
     @IBOutlet weak var photo: UIImageView!
+    @IBOutlet weak var photoHeight: NSLayoutConstraint!
     
     override func awakeFromNib() {
         super.awakeFromNib()
