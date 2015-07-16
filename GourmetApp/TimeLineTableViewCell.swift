@@ -12,16 +12,16 @@ import SDWebImage
 class TimeLineTableViewCell: UITableViewCell {
 
     @IBOutlet weak var profilePhoto: UIImageView!
-    @IBOutlet weak var screenName: UILabel!
     @IBOutlet weak var restaurantName: UILabel!
     @IBOutlet weak var photo: UIImageView!
+    @IBOutlet weak var screenName: UIButton!
     @IBOutlet weak var imageHeight: NSLayoutConstraint!
+    @IBOutlet weak var favoriteButton: UIButton!
     
     var post = Post()
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
