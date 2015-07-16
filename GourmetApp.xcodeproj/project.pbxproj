@@ -15,7 +15,7 @@
 		244354F11B3B860800EDAF03 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 244354EF1B3B860800EDAF03 /* Main.storyboard */; };
 		244354F31B3BC5CD00EDAF03 /* MypageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244354F21B3BC5CD00EDAF03 /* MypageCollectionViewCell.swift */; };
 		244354F51B3BC5E000EDAF03 /* MypageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244354F41B3BC5E000EDAF03 /* MypageViewController.swift */; };
-		246C25481B53C0C50003BA10 /* RestaurantDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246C25471B53C0C50003BA10 /* RestaurantDetailViewController.swift */; };
+		246798921B55D4F50030221C /* RestaurantDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246798911B55D4F50030221C /* RestaurantDetailViewController.swift */; };
 		246C254A1B53E9560003BA10 /* RestaurantDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246C25491B53E9560003BA10 /* RestaurantDetailTableViewCell.swift */; };
 		246E03241B39807E008C1D96 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246E03231B39807E008C1D96 /* Restaurant.swift */; };
 		248E80AF1B4832B700E3E0C2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248E80AE1B4832B700E3E0C2 /* User.swift */; };
@@ -57,7 +57,7 @@
 		244354F01B3B860800EDAF03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		244354F21B3BC5CD00EDAF03 /* MypageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MypageCollectionViewCell.swift; sourceTree = "<group>"; };
 		244354F41B3BC5E000EDAF03 /* MypageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MypageViewController.swift; sourceTree = "<group>"; };
-		246C25471B53C0C50003BA10 /* RestaurantDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantDetailViewController.swift; sourceTree = "<group>"; };
+		246798911B55D4F50030221C /* RestaurantDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RestaurantDetailViewController.swift; path = ../../.Trash/RestaurantDetailViewController.swift; sourceTree = "<group>"; };
 		246C25491B53E9560003BA10 /* RestaurantDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantDetailTableViewCell.swift; sourceTree = "<group>"; };
 		246E03231B39807E008C1D96 /* Restaurant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		248E80AE1B4832B700E3E0C2 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -132,8 +132,8 @@
 				244354DD1B3ABA1700EDAF03 /* SelectRestaurantViewController.swift */,
 				244354F41B3BC5E000EDAF03 /* MypageViewController.swift */,
 				24EFE20B1B4005BC006098E5 /* AuthenticateViewController.swift */,
+				246798911B55D4F50030221C /* RestaurantDetailViewController.swift */,
 				24E55C011B48F3E30049C39D /* TimeLineViewController.swift */,
-				246C25471B53C0C50003BA10 /* RestaurantDetailViewController.swift */,
 				248E80B01B48C83F00E3E0C2 /* CustomUITabBarController.swift */,
 			);
 			name = ViewControllers;
@@ -178,11 +178,11 @@
 				246E03211B397C64008C1D96 /* ViewControllers */,
 				24BCC0811B3978C300E9A79C /* AppDelegate.swift */,
 				243945081B39889D0087EB83 /* API.swift */,
-				24BCC0881B3978C300E9A79C /* Images.xcassets */,
 				244354EF1B3B860800EDAF03 /* Main.storyboard */,
 				24BCC08A1B3978C300E9A79C /* LaunchScreen.xib */,
 				24BCC07F1B3978C200E9A79C /* Supporting Files */,
 				2432E4FE1B3C4BE00042579E /* GourmetAppTests-Bridging-Header.h */,
+				24BCC0881B3978C300E9A79C /* Images.xcassets */,
 				24EFE20E1B417EA6006098E5 /* GourmetApp-Bridging-Header.h */,
 			);
 			path = GourmetApp;
@@ -387,7 +387,7 @@
 			files = (
 				24F83F2F1B3A9356004E9C7E /* PostViewController.swift in Sources */,
 				24EFE20C1B4005BC006098E5 /* AuthenticateViewController.swift in Sources */,
-				246C25481B53C0C50003BA10 /* RestaurantDetailViewController.swift in Sources */,
+				246798921B55D4F50030221C /* RestaurantDetailViewController.swift in Sources */,
 				24E55C041B4A1D000049C39D /* TimeLineTableViewCell.swift in Sources */,
 				244354DE1B3ABA1700EDAF03 /* SelectRestaurantViewController.swift in Sources */,
 				248E80B11B48C83F00E3E0C2 /* CustomUITabBarController.swift in Sources */,
