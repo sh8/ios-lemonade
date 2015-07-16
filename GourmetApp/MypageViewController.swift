@@ -27,6 +27,7 @@ class MypageViewController: UIViewController, UICollectionViewDelegate, UICollec
         nsnc.addObserverForName(API.APILoadCompleteNotification, object: nil, queue: nil,
             usingBlock: {
                 (notification) in
+                self.navigationItem.title = self.user.name
                 self.collectionView.reloadData()
             }
         )
@@ -41,22 +42,41 @@ class MypageViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     // MARK: - アプリケーションロジック
     func getImage() {
-        API.request(.GET, url: "posts", params: nil,
-            completion:{
-                (request, response, json, error) -> Void in
-                self.user.screenoName = json["user"]["screen_name"].string
-                self.user.name = json["user"]["name"].string
-                self.user.email = json["user"]["email"].string
-                self.user.profilePhoto = json["user"]["profile_photo"]["url"].string
-                self.postsNumber = json["posts_number"].string
-                for (key, value) in json["posts"] {
-                    var post = Post()
-                    post.photoName = value["photo"]["url"].string
-                    post.restaurant.id = value["restaurant_id"].int
-                    self.posts.append(post)
+        if let user_id = self.user.id {
+            API.request(.GET, url: "posts", params: ["user_id": "\(user_id)"],
+                completion:{
+                    (request, response, json, error) -> Void in
+                    self.user.screenoName = json["user"]["screen_name"].string
+                    self.user.name = json["user"]["name"].string
+                    self.user.email = json["user"]["email"].string
+                    self.user.profilePhoto = json["user"]["profile_photo"]["url"].string
+                    self.postsNumber = json["posts_number"].string
+                    for (key, value) in json["posts"] {
+                        var post = Post()
+                        post.photoName = value["photo"]["url"].string
+                        post.restaurant.id = value["restaurant_id"].int
+                        self.posts.append(post)
+                    }
                 }
-            }
-        )
+            )
+        } else {
+             API.request(.GET, url: "posts", params: nil,
+                completion:{
+                    (request, response, json, error) -> Void in
+                    self.user.screenoName = json["user"]["screen_name"].string
+                    self.user.name = json["user"]["name"].string
+                    self.user.email = json["user"]["email"].string
+                    self.user.profilePhoto = json["user"]["profile_photo"]["url"].string
+                    self.postsNumber = json["posts_number"].string
+                    for (key, value) in json["posts"] {
+                        var post = Post()
+                        post.photoName = value["photo"]["url"].string
+                        post.restaurant.id = value["restaurant_id"].int
+                        self.posts.append(post)
+                    }
+                }
+            )       
+        }
     }
     
     // MARK: - UICollectionViewFlowLayout
