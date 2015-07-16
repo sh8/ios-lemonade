@@ -10,7 +10,9 @@ import Foundation
 
 public class Post: Printable {
 
+    public var id: Int? = nil
     public var photoName: String? = nil
+    public var isFavorite: Bool? = nil
     public var user: User = User()
     public var restaurant: Restaurant  = Restaurant()
     
