@@ -18,6 +18,7 @@ class TimeLineViewController: UIViewController, UITableViewDelegate, UITableView
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        self.navigationItem.title = "Stream"
         nsnc.addObserverForName(API.APILoadCompleteNotification, object: nil, queue: nil, usingBlock: {
             (notification) in
             self.tableView.reloadData()
@@ -43,7 +44,7 @@ class TimeLineViewController: UIViewController, UITableViewDelegate, UITableView
     
     // MARK: - UITableViewDelegate
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 500
+        return 470
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
