@@ -556,10 +556,10 @@
             </objects>
             <point key="canvasLocation" x="-114" y="890"/>
         </scene>
-        <!--View Controller-->
+        <!--Favorite View Controller-->
         <scene sceneID="8qd-Ps-c9M">
             <objects>
-                <viewController id="D7L-Yo-i21" sceneMemberID="viewController">
+                <viewController id="D7L-Yo-i21" customClass="FavoriteViewController" customModule="GourmetApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="aSl-2H-PCR"/>
                         <viewControllerLayoutGuide type="bottom" id="Gnr-fw-9EH"/>
@@ -578,7 +578,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="tEX-fB-ouN">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="tEX-fB-ouN" customClass="FavoriteCollectionViewCell" customModule="GourmetApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -591,6 +591,9 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <connections>
+                                            <outlet property="photo" destination="zFO-wG-n56" id="Eb9-b8-vDd"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -598,6 +601,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="9jo-DK-nmI"/>
+                    <connections>
+                        <outlet property="collectionView" destination="fno-uv-wwW" id="QN3-1P-7uo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z9s-NC-KAR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
