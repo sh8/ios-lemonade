@@ -123,7 +123,7 @@ class PostViewController: UIViewController, UITextViewDelegate, UIImagePickerCon
 
     // MARK: - UIPartsLayout
     func partsLayout(){
-        submitButton.backgroundColor = UIColor.grayColor()
+        submitButton.backgroundColor = UIColor(red: 0.09, green: 0.09, blue: 0.09, alpha: 1.0)
         submitButton.alpha = 0.9
         submitButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
     }
