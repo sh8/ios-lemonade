@@ -124,13 +124,13 @@ class TimeLineViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func createFavorite(post_id: Int) {
-        API.request(.POST, url: "likes/create", params: ["post_id": post_id], completion: {
+        API.request(.POST, url: "favorites/create", params: ["post_id": post_id], completion: {
             (request, response, json, error) -> Void in
         })
     }
     
     func deleteFavorite(post_id: Int) {
-        API.request(.DELETE, url: "likes/\(post_id)", params: nil, completion: {
+        API.request(.DELETE, url: "favorites/\(post_id)", params: nil, completion: {
             (request, response, json, error) -> Void in
         })
     }
