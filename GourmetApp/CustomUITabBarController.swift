@@ -14,9 +14,12 @@ class CustomUITabBarController: UITabBarController, UITabBarControllerDelegate {
         super.viewDidLoad()
         self.delegate = self
         self.appendCenterButton()
-        UINavigationBar.appearance().barTintColor = UIColor.whiteColor()
-        UINavigationBar.appearance().tintColor = UIColor.grayColor()
-        UINavigationBar.appearance().alpha = 0.9
+        UINavigationBar.appearance().barTintColor = UIColor(red: 0.11, green: 0.39, blue: 0.53, alpha: 1.0)
+        UINavigationBar.appearance().tintColor = UIColor.whiteColor()
+        UINavigationBar.appearance().alpha = 1.0
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
+        UITabBar.appearance().barTintColor = UIColor(red: 0.09, green: 0.09, blue: 0.09, alpha: 1.0)
+        UITabBar.appearance().tintColor = UIColor.whiteColor()
     }
 
     override func didReceiveMemoryWarning() {
@@ -26,12 +29,13 @@ class CustomUITabBarController: UITabBarController, UITabBarControllerDelegate {
     
     func appendCenterButton() {
         let button: UIButton! = UIButton.buttonWithType(UIButtonType.Custom) as? UIButton
-        let image: UIImage? = UIImage(named:"tabbar-photo")
+        let image: UIImage? = UIImage(named:"tabbar-photo2")
         
         button.setImage(image, forState: UIControlState.Normal)
-        button.frame = CGRectMake(0, 0, 80, 70)
+        button.frame = CGRectMake(0, 0, 80, 60)
+        button.imageEdgeInsets = UIEdgeInsetsMake(0, 15, 0, 15)
         button.addTarget(self, action: "onClick:", forControlEvents:.TouchUpInside)
-        button.layer.position = CGPoint(x: self.view.frame.width / 2, y: UIScreen.mainScreen().bounds.size.height - button.frame.height + 40)
+        button.layer.position = CGPoint(x: self.view.frame.width / 2, y: UIScreen.mainScreen().bounds.size.height - button.frame.height + 35)
         button.layer.borderWidth = 0
         
         self.view.addSubview(button)
