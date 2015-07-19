@@ -11,6 +11,7 @@ import UIKit
 class MypageViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var friendListButton: UIBarButtonItem!
     var posts: [Post] = [Post]()
     var user: User = User()
     var postsNumber: String? = nil
@@ -21,6 +22,11 @@ class MypageViewController: UIViewController, UICollectionViewDelegate, UICollec
         super.viewDidLoad()
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
+        
+        if self.navigationController?.restorationIdentifier == "FriendList" {
+            friendListButton.enabled = false
+            friendListButton.tintColor = UIColor.clearColor()
+        }
         
         getImage()
         
@@ -126,7 +132,10 @@ class MypageViewController: UIViewController, UICollectionViewDelegate, UICollec
         return UICollectionViewCell()
     }
     
-
+    @IBAction func friendListButtonTapped(sender: UIBarButtonItem) {
+        performSegueWithIdentifier("PushToFriendList", sender: nil)
+    }
+    
     /*
     // MARK: - Navigation
 
