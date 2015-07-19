@@ -23,6 +23,8 @@
 		24B1D82A1B58DA540076332B /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B1D8291B58DA540076332B /* FavoriteViewController.swift */; };
 		24B1D82C1B58DAAD0076332B /* FavoriteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B1D82B1B58DAAD0076332B /* FavoriteCollectionViewCell.swift */; };
 		24B1D82E1B59524F0076332B /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B1D82D1B59524F0076332B /* Favorite.swift */; };
+		24B1D8301B5B36830076332B /* FriendListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B1D82F1B5B36830076332B /* FriendListViewController.swift */; };
+		24B1D8321B5B4FF20076332B /* FriendListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B1D8311B5B4FF20076332B /* FriendListTableViewCell.swift */; };
 		24BCC0821B3978C300E9A79C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BCC0811B3978C300E9A79C /* AppDelegate.swift */; };
 		24BCC0841B3978C300E9A79C /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BCC0831B3978C300E9A79C /* SearchViewController.swift */; };
 		24BCC0891B3978C300E9A79C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24BCC0881B3978C300E9A79C /* Images.xcassets */; };
@@ -66,6 +68,8 @@
 		24B1D8291B58DA540076332B /* FavoriteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		24B1D82B1B58DAAD0076332B /* FavoriteCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteCollectionViewCell.swift; sourceTree = "<group>"; };
 		24B1D82D1B59524F0076332B /* Favorite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = "<group>"; };
+		24B1D82F1B5B36830076332B /* FriendListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendListViewController.swift; sourceTree = "<group>"; };
+		24B1D8311B5B4FF20076332B /* FriendListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendListTableViewCell.swift; sourceTree = "<group>"; };
 		24BCC07C1B3978C200E9A79C /* GourmetApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GourmetApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24BCC0801B3978C200E9A79C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		24BCC0811B3978C300E9A79C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -125,6 +129,7 @@
 				24E55C031B4A1D000049C39D /* TimeLineTableViewCell.swift */,
 				246C25491B53E9560003BA10 /* RestaurantDetailTableViewCell.swift */,
 				24B1D82B1B58DAAD0076332B /* FavoriteCollectionViewCell.swift */,
+				24B1D8311B5B4FF20076332B /* FriendListTableViewCell.swift */,
 			);
 			name = UIViews;
 			sourceTree = "<group>";
@@ -141,6 +146,7 @@
 				24E55C011B48F3E30049C39D /* TimeLineViewController.swift */,
 				248E80B01B48C83F00E3E0C2 /* CustomUITabBarController.swift */,
 				24B1D8291B58DA540076332B /* FavoriteViewController.swift */,
+				24B1D82F1B5B36830076332B /* FriendListViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -403,6 +409,7 @@
 				24B1D82E1B59524F0076332B /* Favorite.swift in Sources */,
 				246C254A1B53E9560003BA10 /* RestaurantDetailTableViewCell.swift in Sources */,
 				24B1D82A1B58DA540076332B /* FavoriteViewController.swift in Sources */,
+				24B1D8321B5B4FF20076332B /* FriendListTableViewCell.swift in Sources */,
 				24F83F2D1B3A7F1C004E9C7E /* LocationService.swift in Sources */,
 				248E80AF1B4832B700E3E0C2 /* User.swift in Sources */,
 				2432E4F21B3C42960042579E /* Post.swift in Sources */,
@@ -410,6 +417,7 @@
 				2432E5001B3D54220042579E /* MypageCollectionReusableView.swift in Sources */,
 				244354F51B3BC5E000EDAF03 /* MypageViewController.swift in Sources */,
 				244354F31B3BC5CD00EDAF03 /* MypageCollectionViewCell.swift in Sources */,
+				24B1D8301B5B36830076332B /* FriendListViewController.swift in Sources */,
 				24BCC0821B3978C300E9A79C /* AppDelegate.swift in Sources */,
 				243945091B39889D0087EB83 /* API.swift in Sources */,
 				246E03241B39807E008C1D96 /* Restaurant.swift in Sources */,
