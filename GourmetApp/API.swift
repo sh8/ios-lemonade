@@ -23,15 +23,24 @@ public class API {
     private init(){}
     
     // AlamofireをAPIクラスのrequestメソッドでラップした.
-    class func request(method: Alamofire.Method, url: String, params: [String: AnyObject]?, completion: (NSURLRequest, NSHTTPURLResponse?, JSON, NSError?) -> Void) -> Void {
+    class func request(method: Alamofire.Method, url: String, params: [String: AnyObject]?, is_authenticate: Bool = false, completion: (NSURLRequest, NSHTTPURLResponse?, JSON, NSError?) -> Void) -> Void {
         var request_url = api_url + url
         
-        manager.request(method, request_url, parameters: params).responseSwiftyJSON({
-            (request, response, json, error) -> Void in
+        if is_authenticate {
+            Alamofire.request(method, request_url, parameters: params).responseSwiftyJSON({
+                (request, response, json, error) -> Void in
                 completion(request, response, json, error)
                 NSNotificationCenter.defaultCenter().postNotificationName(self.APILoadCompleteNotification, object: nil)
-            }
-        )
+                }
+            )
+        } else {
+            manager.request(method, request_url, parameters: params).responseSwiftyJSON({
+                (request, response, json, error) -> Void in
+                completion(request, response, json, error)
+                NSNotificationCenter.defaultCenter().postNotificationName(self.APILoadCompleteNotification, object: nil)
+                }
+            )
+        }
     }
     
     class func upload(url: String, params: [String: String]?, data: NSData, completion: (NSURLRequest, NSHTTPURLResponse?, JSON, NSError?) -> Void) -> Void {
