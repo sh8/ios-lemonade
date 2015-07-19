@@ -70,8 +70,14 @@ class TimeLineViewController: UIViewController, UITableViewDelegate, UITableView
                 
                 cell.profilePhoto.layer.masksToBounds = true
                 cell.photo.contentMode = UIViewContentMode.ScaleAspectFit
-                cell.photo.sd_setImageWithURL(NSURL(string: self.posts[indexPath.row].photoName!))
-                cell.profilePhoto.sd_setImageWithURL(NSURL(string: self.posts[indexPath.row].user.profilePhoto!))
+                
+                if let photoName = self.posts[indexPath.row].photoName {
+                    cell.photo.sd_setImageWithURL(NSURL(string: photoName))
+                }
+                
+                if let profilePhoto = self.posts[indexPath.row].user.profilePhoto {
+                    cell.profilePhoto.sd_setImageWithURL(NSURL(string: profilePhoto))
+                }
                 
                 cell.favoriteButton.addTarget(self, action: "toggleFavorite:forEvent:", forControlEvents: UIControlEvents.TouchUpInside)
                 var alphaColor: UIColor? = nil
