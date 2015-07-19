@@ -8,6 +8,7 @@
 
 import UIKit
 import Accounts
+import Social
 import TSMessages
 
 class AuthenticateViewController: UIViewController, UITextFieldDelegate {
@@ -43,7 +44,7 @@ class AuthenticateViewController: UIViewController, UITextFieldDelegate {
     @IBAction func facebookButtonTapped(sender: UIButton) {
         var facebookAccountType: ACAccountType = self.accountStore.accountTypeWithAccountTypeIdentifier(ACAccountTypeIdentifierFacebook)
         let env = NSProcessInfo.processInfo().environment
-        let options = [ACFacebookAppIdKey: env["FacebookAppID"] as! String, ACFacebookPermissionsKey: ["email"], ACFacebookAudienceKey: ACFacebookAudienceOnlyMe]
+        let options = [ACFacebookAppIdKey: env["FacebookAppID"] as! String, ACFacebookPermissionsKey: ["email", "user_friends"], ACFacebookAudienceKey: ACFacebookAudienceOnlyMe]
         self.accountStore.requestAccessToAccountsWithType(facebookAccountType, options: options as [NSObject : AnyObject], completion:{
             (granted: Bool, error: NSError?) -> Void in
             if error != nil {
@@ -56,6 +57,15 @@ class AuthenticateViewController: UIViewController, UITextFieldDelegate {
                 if facebookAccounts.count > 0 {
                     let facebookAccount: ACAccount? = facebookAccounts.last
                     let access_token: String? = facebookAccount?.credential.oauthToken
+                    var friendListRequest = SLRequest(forServiceType: SLServiceTypeFacebook, requestMethod: SLRequestMethod.GET, URL: NSURL(string: "https://graph.facebook.com/v2.4/me/friends"), parameters: nil)
+                    println(facebookAccount)
+                    friendListRequest.account = facebookAccount
+                    friendListRequest.performRequestWithHandler(){
+                        (responseData, httpResponse, error) in
+                        // 同じアプリを利用しているユーザ情報を取得できるようにする。
+                        let res = NSJSONSerialization.JSONObjectWithData(responseData,
+                            options: NSJSONReadingOptions.AllowFragments, error: nil) as! NSDictionary
+                    }
                     self.account = facebookAccount
                     self.signUp(sns_type: self.FACEBOOK)
                 }
@@ -101,10 +111,11 @@ class AuthenticateViewController: UIViewController, UITextFieldDelegate {
                 let uid = self.account?.valueForKey("properties")?.objectForKey("user_id") as! String
                 params = ["user": ["name": name, "screen_name": name, "email": email, "uid": uid, "sns_type": sns]]
             case self.FACEBOOK:
+                let screen_name = self.account.userFullName
                 let name = self.account.username
                 let email: String = self.account?.valueForKey("properties")?.objectForKey("ACUIDisplayUsername") as! String
                 let uid = self.account?.valueForKey("properties")?.objectForKey("uid") as! Int
-                params = ["user": ["name": name, "screen_name": name, "email": email, "uid": uid, "sns_type": sns]]
+                params = ["user": ["name": name, "screen_name": screen_name, "email": email, "uid": uid, "sns_type": sns]]
             default:
                 break
             }
@@ -114,7 +125,7 @@ class AuthenticateViewController: UIViewController, UITextFieldDelegate {
             let password = passwordField.text
             params = ["user": ["screen_name": name, "email": email, "password": password]]
         }
-        API.request(.POST, url: "users/sign_up", params: params, completion: {
+        API.request(.POST, url: "users/sign_up", params: params, is_authenticate: true, completion: {
             (request, response, json, error) -> Void in
             for (key, value) in json {
                 self.defaults.setObject(json["access_token"].string, forKey: "ACCESS_TOKEN")
