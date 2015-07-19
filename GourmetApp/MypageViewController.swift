@@ -27,7 +27,7 @@ class MypageViewController: UIViewController, UICollectionViewDelegate, UICollec
         nsnc.addObserverForName(API.APILoadCompleteNotification, object: nil, queue: nil,
             usingBlock: {
                 (notification) in
-                self.navigationItem.title = self.user.name
+                self.navigationItem.title = self.user.screenoName
                 self.collectionView.reloadData()
             }
         )
