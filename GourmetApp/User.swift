@@ -17,7 +17,8 @@ public class User: Printable {
     public var sex: Int? = nil
     public var birthday: Int? = nil
     public var profilePhoto: String? = nil
-    
+    public var isCurrentUser: Bool? = nil
+
     public var description: String {
         get {
             var str: String = "\(name)\n"
