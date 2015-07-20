@@ -18,6 +18,7 @@ public class User: Printable {
     public var birthday: Int? = nil
     public var profilePhoto: String? = nil
     public var isCurrentUser: Bool? = nil
+    public var isFollowUser: Bool? = nil
 
     public var description: String {
         get {
